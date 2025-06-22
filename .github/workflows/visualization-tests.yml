@@ -1,0 +1,106 @@
+name: Visualization Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  visualization-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Install package
+      run: |
+        pip install -e .
+
+    - name: Test basic visualizations
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        xvfb-run -a python -c "
+        from visualizations.demo import run_basic_demo
+        run_basic_demo()
+        print('✓ Basic visualizations demo passed')
+        "
+
+    - name: Test scientific visualizations
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        xvfb-run -a python -c "
+        from visualizations.demo import run_scientific_demo
+        run_scientific_demo()
+        print('✓ Scientific visualizations demo passed')
+        "
+
+    - name: Test comparative visualizations
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        xvfb-run -a python -c "
+        from visualizations.demo import run_comparative_demo
+        run_comparative_demo()
+        print('✓ Comparative visualizations demo passed')
+        "
+
+    - name: Test advanced visualizations
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        xvfb-run -a python -c "
+        from visualizations.demo import run_advanced_demo
+        run_advanced_demo()
+        print('✓ Advanced visualizations demo passed')
+        "
+
+    - name: Test 3D model visualization
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        xvfb-run -a python -c "
+        from visualizations.model_3d import test_3d_visualization
+        test_3d_visualization()
+        print('✓ 3D visualization test passed')
+        "
+
+    - name: Test network analysis
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        xvfb-run -a python -c "
+        from visualizations.networks import test_network_visualization
+        test_network_visualization()
+        print('✓ Network visualization test passed')
+        "
+
+    - name: Upload visualization artifacts
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: visualization-outputs
+        path: |
+          *.png
+          *.pdf
+          *.html
