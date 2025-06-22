@@ -1,6 +1,6 @@
 name: Code Quality
 
-on:
+'on':
   push:
     branches: [ main, develop ]
   pull_request:
@@ -19,7 +19,7 @@ jobs:
         python-version: '3.10'
 
     - name: Cache pip dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-quality-${{ hashFiles('**/requirements.txt') }}
@@ -60,7 +60,9 @@ jobs:
     - name: Security check with bandit
       run: |
         pip install bandit
-        bandit -r eles_core/ visualizations/ -f json -o bandit-report.json || true    - name: Upload bandit report
+        bandit -r eles_core/ visualizations/ -f json -o bandit-report.json || true
+
+    - name: Upload bandit report
       uses: actions/upload-artifact@v4
       if: always()
       with:

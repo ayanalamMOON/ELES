@@ -1,6 +1,6 @@
 name: Demo Validation
 
-on:
+"on":
   push:
     branches: [ main, develop ]
   pull_request:
@@ -70,16 +70,16 @@ jobs:
 
         try:            print('✓ Running basic demo...')
             run_basic_demo()
-            
+
             print('✓ Running scientific demo...')
             run_scientific_demo()
-            
+
             print('✓ Running comparative demo...')
             run_comparative_demo()
-            
+
             print('✓ Running advanced demo...')
             run_advanced_demo()
-            
+
             print('All demos completed successfully!')
         except Exception as e:
             print(f'Demo validation failed: {e}')
