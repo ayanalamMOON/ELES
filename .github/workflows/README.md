@@ -16,16 +16,17 @@ This directory contains automated workflows for the ELES (Extinction-Level Event
   - Caching for faster builds
   - Installation and quick test validation
 
-#### 2. `code-quality.yml` - Code Quality Checks
+#### 2. `package-release.yml` - Package Release Automation
 
-- **Triggers:** Push/PR to main/develop branches
-- **Purpose:** Ensures code quality and consistency
+- **Triggers:** Git tags matching `v*.*.*` + manual dispatch
+- **Purpose:** Comprehensive package release automation
 - **Features:**
-  - Linting with flake8
-  - Code formatting checks with black
-  - Import sorting validation with isort
-  - Type checking with mypy
-  - Security scanning with bandit
+  - Multi-Python version testing (3.8-3.11)
+  - Package building with build/twine/wheel
+  - GitHub release creation with automatic changelog
+  - PyPI publishing with environment protection
+  - Test PyPI publishing for manual releases
+  - Asset uploading and release notifications
 
 #### 3. `visualization-tests.yml` - Visualization Validation
 
@@ -131,13 +132,14 @@ graph TD
 
 To use all workflows effectively, configure these secrets in your repository:
 
-### Required Secrets
+### Essential Secrets
 
-- `PYPI_API_TOKEN` - For PyPI package publishing
+- `PYPI_API_TOKEN` - For PyPI package publishing (required for releases)
 - `GITHUB_TOKEN` - Automatically provided by GitHub
 
 ### Optional Secrets
 
+- `TEST_PYPI_API_TOKEN` - For Test PyPI publishing
 - `CODECOV_TOKEN` - For enhanced Codecov integration
 - Personal access tokens for enhanced automation
 

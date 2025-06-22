@@ -16,16 +16,16 @@ I've created a comprehensive set of GitHub Actions workflows for the ELES projec
   - Dependency caching for faster builds
   - Installation and quick test validation
 
-### 2. **code-quality.yml** - Code Quality Assurance
+### 2. **package-release.yml** - Comprehensive Package Release
 
-- **Purpose**: Ensures code quality and consistency
-- **Triggers**: Push/PR to main/develop branches
+- **Purpose**: Automated package building, testing, and release to PyPI
+- **Triggers**: Git tags matching `v*.*.*` pattern + manual workflow dispatch
 - **Features**:
-  - Linting with flake8
-  - Code formatting checks with black
-  - Import sorting validation with isort
-  - Type checking with mypy
-  - Security scanning with bandit
+  - Multi-Python version testing (3.8-3.11)
+  - Package building and validation
+  - GitHub release creation with changelog
+  - PyPI and Test PyPI publishing
+  - Asset uploading and release notes generation
 
 ### 3. **visualization-tests.yml** - Visualization Validation
 

@@ -1,0 +1,311 @@
+name: Package Release
+
+'on':
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      version:
+        description: 'Release version (e.g., 1.0.0)'
+        required: true
+        type: string
+      prerelease:
+        description: 'Mark as pre-release'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for changelog generation
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install build twine wheel setuptools
+
+    - name: Install package in development mode
+      run: |
+        pip install -e .
+
+    - name: Run tests
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        python test_installation.py
+        python quick_test.py
+
+    - name: Test visualization demos
+      run: |
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        export MPLBACKEND=Agg
+        python -c "
+        from visualizations.demo import (
+            run_basic_demo, 
+            run_scientific_demo, 
+            run_comparative_demo
+        )
+        try:
+            run_basic_demo()
+            run_scientific_demo() 
+            run_comparative_demo()
+            print('✅ All visualization demos passed')
+        except Exception as e:
+            print(f'❌ Demo test failed: {e}')
+            raise
+        "
+
+  package-build:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install build dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine wheel setuptools
+
+    - name: Extract version from tag or input
+      id: get_version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ github.event.inputs.version }}"
+        else
+          VERSION=${GITHUB_REF#refs/tags/v}
+        fi
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Version: $VERSION"
+
+    - name: Update version in setup.py
+      run: |
+        VERSION="${{ steps.get_version.outputs.version }}"
+        sed -i "s/version=['\"][^'\"]*['\"]/version='$VERSION'/" setup.py
+        echo "Updated setup.py with version $VERSION"
+
+    - name: Build package
+      run: |
+        python -m build
+        ls -la dist/
+
+    - name: Check package
+      run: |
+        twine check dist/*
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: package-artifacts-${{ steps.get_version.outputs.version }}
+        path: dist/
+        retention-days: 30
+
+  create-release:
+    needs: [build-and-test, package-build]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Extract version
+      id: get_version
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Generate changelog
+      id: changelog
+      run: |
+        # Get the latest tag before this one
+        PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+        
+        if [ -z "$PREV_TAG" ]; then
+          # If no previous tag, get all commits
+          CHANGELOG=$(git log --pretty=format:"- %s (%h)" --no-merges | head -20)
+        else
+          # Get commits since last tag
+          CHANGELOG=$(git log ${PREV_TAG}..HEAD --pretty=format:"- %s (%h)" --no-merges)
+        fi
+        
+        # Create release notes
+        echo "# ELES Release v${{ steps.get_version.outputs.version }}" > RELEASE_NOTES.md
+        echo "" >> RELEASE_NOTES.md
+        echo "## Changes" >> RELEASE_NOTES.md
+        echo "$CHANGELOG" >> RELEASE_NOTES.md
+        echo "" >> RELEASE_NOTES.md
+        echo "## Installation" >> RELEASE_NOTES.md
+        echo "" >> RELEASE_NOTES.md
+        echo '```bash' >> RELEASE_NOTES.md
+        echo "pip install eles-simulator==${{ steps.get_version.outputs.version }}" >> RELEASE_NOTES.md
+        echo '```' >> RELEASE_NOTES.md
+        echo "" >> RELEASE_NOTES.md
+        echo "## Features" >> RELEASE_NOTES.md
+        echo "- Advanced extinction event simulation engine" >> RELEASE_NOTES.md
+        echo "- Comprehensive visualization suite" >> RELEASE_NOTES.md
+        echo "- Scientific plotting and analysis tools" >> RELEASE_NOTES.md
+        echo "- Interactive web interface" >> RELEASE_NOTES.md
+        echo "- Command-line interface" >> RELEASE_NOTES.md
+
+    - name: Download package artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: package-artifacts-${{ steps.get_version.outputs.version }}
+        path: dist/
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ steps.get_version.outputs.version }}
+        release_name: ELES v${{ steps.get_version.outputs.version }}
+        body_path: RELEASE_NOTES.md
+        draft: false
+        prerelease: false
+
+    - name: Upload wheel to release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/eles_simulator-${{ steps.get_version.outputs.version }}-py3-none-any.whl
+        asset_name: eles_simulator-${{ steps.get_version.outputs.version }}-py3-none-any.whl
+        asset_content_type: application/octet-stream
+
+    - name: Upload source distribution to release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/eles-simulator-${{ steps.get_version.outputs.version }}.tar.gz
+        asset_name: eles-simulator-${{ steps.get_version.outputs.version }.tar.gz
+        asset_content_type: application/gzip
+
+  publish-pypi:
+    needs: [build-and-test, package-build, create-release]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    environment:
+      name: pypi
+      url: https://pypi.org/project/eles-simulator/
+
+    steps:
+    - name: Extract version
+      id: get_version
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Download package artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: package-artifacts-${{ steps.get_version.outputs.version }}
+        path: dist/
+
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
+        packages-dir: dist/
+        verify-metadata: true
+        verbose: true
+
+  publish-test-pypi:
+    needs: [build-and-test, package-build]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+
+    steps:
+    - name: Extract version
+      id: get_version
+      run: |
+        VERSION="${{ github.event.inputs.version }}"
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Download package artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: package-artifacts-${{ steps.get_version.outputs.version }}
+        path: dist/
+
+    - name: Publish to Test PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository-url: https://test.pypi.org/legacy/
+        packages-dir: dist/
+        verify-metadata: true
+        verbose: true
+
+  notify-success:
+    needs: [build-and-test, package-build, create-release, publish-pypi]
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+    - name: Extract version
+      id: get_version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ github.event.inputs.version }}"
+        else
+          VERSION=${GITHUB_REF#refs/tags/v}
+        fi
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Create success summary
+      run: |
+        echo "# 🎉 ELES Package Release Successful!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Release Details" >> $GITHUB_STEP_SUMMARY
+        echo "- **Version**: v${{ steps.get_version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Release Date**: $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## What was released" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Package built and tested on Python 3.8-3.11" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ GitHub release created with assets" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Published to PyPI" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ All visualization demos verified" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Installation" >> $GITHUB_STEP_SUMMARY
+        echo '```bash' >> $GITHUB_STEP_SUMMARY
+        echo "pip install eles-simulator==${{ steps.get_version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
