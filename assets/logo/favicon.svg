@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified favicon version -->
+  <circle cx="8" cy="8" r="7" fill="#1a1a2e"/>
+  <circle cx="8" cy="8" r="5" fill="#1565c0"/>
+  <circle cx="11" cy="5" r="1.5" fill="#ff1744"/>
+  <path d="M11 5 L13 3" stroke="#ff5722" stroke-width="1"/>
+  <polygon points="8,2 10,5 6,5" fill="#ff9800"/>
+</svg>

@@ -1,0 +1,12 @@
+scenario_name: "Yellowstone Supervolcano"
+description: "Catastrophic eruption of Yellowstone Caldera"
+event_type: "supervolcano"
+parameters:
+  name: "Yellowstone"
+  vei: 8
+
+metadata:
+  last_eruption: "640,000 years ago"
+  eruption_probability: "1 in 10,000 per year"
+  affected_area: "Continental United States and beyond"
+  notes: "Could trigger global volcanic winter"

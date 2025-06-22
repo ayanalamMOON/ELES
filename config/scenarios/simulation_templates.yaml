@@ -1,0 +1,92 @@
+# Simulation Configuration Templates
+# This file defines different simulation configuration templates
+
+simulation_templates:
+  quick_run:
+    name: "Quick Simulation"
+    description: "Fast simulation for testing and demos"
+    parameters:
+      time_step_days: 30
+      max_simulation_years: 10
+      population_resolution: "continental"
+      economic_model: "simplified"
+      climate_model: "basic"
+
+    output:
+      save_frequency_days: 365
+      detail_level: "summary"
+      charts: ["timeline", "casualties"]
+      export_format: "json"
+
+  standard:
+    name: "Standard Simulation"
+    description: "Balanced simulation for most use cases"
+    parameters:
+      time_step_days: 7
+      max_simulation_years: 50
+      population_resolution: "national"
+      economic_model: "intermediate"
+      climate_model: "detailed"
+
+    output:
+      save_frequency_days: 30
+      detail_level: "detailed"
+      charts: ["timeline", "casualties", "recovery", "maps"]
+      export_format: "json"
+
+  research:
+    name: "Research-Grade Simulation"
+    description: "High-detail simulation for research purposes"
+    parameters:
+      time_step_days: 1
+      max_simulation_years: 100
+      population_resolution: "regional"
+      economic_model: "comprehensive"
+      climate_model: "full_physics"
+
+    output:
+      save_frequency_days: 7
+      detail_level: "comprehensive"
+      charts: ["all"]
+      export_format: ["json", "csv", "netcdf"]
+
+  educational:
+    name: "Educational Simulation"
+    description: "Simplified simulation for educational use"
+    parameters:
+      time_step_days: 30
+      max_simulation_years: 25
+      population_resolution: "global"
+      economic_model: "basic"
+      climate_model: "simplified"
+
+    output:
+      save_frequency_days: 90
+      detail_level: "educational"
+      charts: ["timeline", "simple_maps"]
+      export_format: "json"
+      explanations: true
+
+  comparison:
+    name: "Scenario Comparison"
+    description: "Template for comparing multiple scenarios"
+    parameters:
+      time_step_days: 14
+      max_simulation_years: 30
+      population_resolution: "national"
+      economic_model: "intermediate"
+      climate_model: "detailed"
+
+    output:
+      save_frequency_days: 30
+      detail_level: "comparative"
+      charts: ["comparison", "timeline", "impact_matrix"]
+      export_format: "json"
+
+# Default simulation settings
+defaults:
+  template: "standard"
+  random_seed: null
+  parallel_execution: true
+  error_handling: "continue"
+  progress_reporting: true

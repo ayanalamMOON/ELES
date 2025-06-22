@@ -1,0 +1,79 @@
+# Preset Scenario Collections
+collections:
+  beginner_scenarios:
+    name: "Beginner Scenarios"
+    description: "Simple scenarios for learning about extinction events"
+    difficulty: "easy"
+    scenarios:
+      - "asteroid_tunguska"
+      - "pandemic_spanish_flu"
+      - "gamma_ray_burst_distant"
+
+  historical_scenarios:
+    name: "Historical Events"
+    description: "Based on real historical extinction events"
+    difficulty: "medium"
+    scenarios:
+      - "asteroid_tunguska"
+      - "supervolcano_toba"
+      - "pandemic_spanish_flu"
+      - "pandemic_black_death"
+
+  worst_case_scenarios:
+    name: "Worst Case Scenarios"
+    description: "Maximum severity extinction-level events"
+    difficulty: "extreme"
+    scenarios:
+      - "asteroid_2km_metal"
+      - "supervolcano_yellowstone"
+      - "climate_runaway_greenhouse"
+      - "ai_superintelligence"
+
+  modern_threats:
+    name: "Modern Threats"
+    description: "Contemporary extinction risks"
+    difficulty: "hard"
+    scenarios:
+      - "pandemic_severe"
+      - "ai_gradual_replacement"
+      - "climate_runaway_greenhouse"
+      - "gamma_ray_burst_nearby"
+
+  comparative_study:
+    name: "Comparative Analysis"
+    description: "Compare different types of extinction events"
+    difficulty: "medium"
+    scenarios:
+      - "asteroid_apophis"
+      - "supervolcano_yellowstone"
+      - "pandemic_spanish_flu"
+      - "gamma_ray_burst_nearby"
+      - "climate_snowball_earth"
+
+educational_modules:
+  module_1:
+    title: "Introduction to Extinction Events"
+    description: "Learn about different types of extinction events"
+    scenarios: ["asteroid_tunguska", "pandemic_spanish_flu"]
+    learning_objectives:
+      - "Understand scale of extinction events"
+      - "Compare different event types"
+      - "Learn about historical precedents"
+
+  module_2:
+    title: "Asteroid Impacts"
+    description: "Deep dive into asteroid impact scenarios"
+    scenarios: ["asteroid_tunguska", "asteroid_apophis", "asteroid_2km_metal"]
+    learning_objectives:
+      - "Understand impact energy scaling"
+      - "Learn about crater formation"
+      - "Explore global climate effects"
+
+  module_3:
+    title: "Pandemics and Society"
+    description: "Explore pandemic scenarios and social effects"
+    scenarios: ["pandemic_spanish_flu", "pandemic_black_death", "pandemic_severe"]
+    learning_objectives:
+      - "Understand epidemic dynamics"
+      - "Explore social and economic impacts"
+      - "Compare historical and hypothetical pandemics"

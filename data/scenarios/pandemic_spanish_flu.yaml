@@ -1,0 +1,26 @@
+# Spanish Flu Pandemic Scenario
+scenario_name: "Spanish Flu-like Pandemic"
+description: "Global pandemic similar to 1918 Spanish Flu"
+event_type: "pandemic"
+severity_estimate: 4
+historical_context: "1918 Spanish Flu killed 50-100 million people"
+
+parameters:
+  r0: 2.0
+  mortality_rate: 0.03
+  incubation_period_days: 7
+  infectious_period_days: 10
+  population: 8000000000
+
+expected_outcomes:
+  total_infected: 2600000000
+  total_deaths: 78000000
+  peak_infected: 260000000
+  epidemic_duration_days: 730
+  gdp_loss_percent: 20
+  healthcare_system_collapse: true
+
+notes: |
+  Modern version of 1918 Spanish Flu would be devastating due to higher
+  population density and global connectivity, but better healthcare
+  might reduce mortality rate.

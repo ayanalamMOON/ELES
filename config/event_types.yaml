@@ -1,0 +1,92 @@
+# Event Type Configurations
+event_types:
+  asteroid:
+    display_name: "Asteroid Impact"
+    icon: "☄️"
+    description: "Cosmic projectiles causing impact events"
+    parameter_ranges:
+      diameter_km:
+        min: 0.001
+        max: 100
+        default: 1.0
+        unit: "km"
+      density_kg_m3:
+        min: 500
+        max: 10000
+        default: 3000
+        unit: "kg/m³"
+      velocity_km_s:
+        min: 5
+        max: 100
+        default: 20
+        unit: "km/s"
+
+  supervolcano:
+    display_name: "Supervolcano"
+    icon: "🌋"
+    description: "Massive volcanic eruptions with global effects"
+    parameter_ranges:
+      vei:
+        min: 4
+        max: 8
+        default: 6
+        unit: "VEI scale"
+      magma_volume_km3:
+        min: 0.1
+        max: 10000
+        default: 100
+        unit: "km³"
+
+  pandemic:
+    display_name: "Global Pandemic"
+    icon: "🦠"
+    description: "Infectious disease outbreaks"
+    parameter_ranges:
+      r0:
+        min: 0.5
+        max: 15.0
+        default: 2.5
+        unit: "reproduction number"
+      mortality_rate:
+        min: 0.001
+        max: 0.9
+        default: 0.02
+        unit: "fraction"
+
+  gamma_ray_burst:
+    display_name: "Gamma-Ray Burst"
+    icon: "💫"
+    description: "High-energy electromagnetic radiation from space"
+    parameter_ranges:
+      distance_ly:
+        min: 100
+        max: 50000
+        default: 1000
+        unit: "light-years"
+
+  climate_collapse:
+    display_name: "Climate Collapse"
+    icon: "🌡️"
+    description: "Extreme climate change scenarios"
+    parameter_ranges:
+      temperature_change_c:
+        min: -50
+        max: 50
+        default: -5
+        unit: "°C"
+
+  ai_extinction:
+    display_name: "AI Extinction"
+    icon: "🤖"
+    description: "Artificial intelligence-related extinction scenarios"
+    parameter_ranges:
+      ai_level:
+        min: 1
+        max: 10
+        default: 5
+        unit: "capability level"
+      alignment_probability:
+        min: 0.0
+        max: 1.0
+        default: 0.5
+        unit: "probability"

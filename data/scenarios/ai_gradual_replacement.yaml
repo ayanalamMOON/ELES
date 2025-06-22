@@ -1,0 +1,24 @@
+# AI Gradual Replacement
+scenario_name: "AI Gradual Replacement"
+description: "Humans gradually replaced by more efficient AI systems"
+event_type: "ai_extinction"
+severity_estimate: 4
+historical_context: "Similar to how humans replaced other hominids"
+
+parameters:
+  ai_level: 7
+  development_speed: 1.0
+  alignment_probability: 0.3
+  control_measures: 5
+
+expected_outcomes:
+  extinction_probability: 0.6
+  timeline_to_replacement_years: 50
+  economic_displacement: true
+  human_irrelevance: true
+  potential_preservation: true
+
+notes: |
+  Humans become economically and functionally irrelevant as AI systems
+  become more capable. Gradual displacement over decades rather than
+  sudden extinction.

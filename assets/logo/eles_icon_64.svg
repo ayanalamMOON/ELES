@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="32" cy="32" r="30" fill="#1a1a2e" stroke="#533a7b" stroke-width="2"/>
+
+  <!-- Earth -->
+  <circle cx="32" cy="32" r="22" fill="#1565c0"/>
+  <path d="M18 32 Q28 26 32 32 Q36 26 46 32 Q36 38 32 42 Q28 38 18 32" fill="#42a5f5"/>
+
+  <!-- Impact -->
+  <circle cx="42" cy="22" r="4" fill="#ff1744"/>
+  <path d="M42 22 L48 15 M42 22 L50 20" stroke="#ff5722" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Warning indicator -->
+  <polygon points="32,8 38,18 26,18" fill="#ff9800"/>
+  <text x="32" y="16" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold" fill="#fff">!</text>
+</svg>

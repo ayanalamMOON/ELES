@@ -1,0 +1,26 @@
+# Tunguska-like Asteroid Impact
+scenario_name: "Tunguska-like Impact"
+description: "Small asteroid impact similar to 1908 Tunguska event"
+event_type: "asteroid"
+severity_estimate: 2
+historical_context: "Based on 1908 Tunguska event in Siberia"
+
+parameters:
+  diameter_km: 0.06
+  density_kg_m3: 3000
+  velocity_km_s: 20.0
+  impact_angle: 30.0
+  target_type: "continental"
+
+expected_outcomes:
+  crater_diameter_km: 0
+  impact_energy_j: 1e16
+  tnt_equivalent_mt: 15
+  immediate_casualties: 0
+  blast_radius_km: 30
+  recovery_time_years: 1
+
+notes: |
+  This scenario represents a relatively small asteroid impact that would
+  cause local devastation but minimal global effects. Trees flattened
+  over ~2000 km² area.

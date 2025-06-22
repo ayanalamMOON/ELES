@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="24" cy="24" r="22" fill="#1a1a2e" stroke="#37474f" stroke-width="2"/>
+
+  <!-- Virus structure -->
+  <circle cx="24" cy="24" r="10" fill="#d32f2f" stroke="#b71c1c" stroke-width="2"/>
+
+  <!-- Virus spikes -->
+  <circle cx="14" cy="24" r="2" fill="#f44336"/>
+  <circle cx="34" cy="24" r="2" fill="#f44336"/>
+  <circle cx="24" cy="14" r="2" fill="#f44336"/>
+  <circle cx="24" cy="34" r="2" fill="#f44336"/>
+  <circle cx="17" cy="17" r="1.5" fill="#f44336"/>
+  <circle cx="31" cy="17" r="1.5" fill="#f44336"/>
+  <circle cx="17" cy="31" r="1.5" fill="#f44336"/>
+  <circle cx="31" cy="31" r="1.5" fill="#f44336"/>
+
+  <!-- DNA/RNA strands inside -->
+  <path d="M20 20 Q24 22 28 20 Q24 26 20 28 Q24 26 28 28" fill="none" stroke="#ffeb3b" stroke-width="2"/>
+
+  <!-- Infection spread indicators -->
+  <circle cx="8" cy="12" r="3" fill="#e57373" opacity="0.6"/>
+  <circle cx="40" cy="12" r="3" fill="#e57373" opacity="0.6"/>
+  <circle cx="8" cy="36" r="3" fill="#e57373" opacity="0.6"/>
+  <circle cx="40" cy="36" r="3" fill="#e57373" opacity="0.6"/>
+
+  <!-- Connection lines showing spread -->
+  <path d="M11 12 Q18 18 18 18" stroke="#ff5722" stroke-width="1" opacity="0.5"/>
+  <path d="M37 12 Q30 18 30 18" stroke="#ff5722" stroke-width="1" opacity="0.5"/>
+  <path d="M11 36 Q18 30 18 30" stroke="#ff5722" stroke-width="1" opacity="0.5"/>
+  <path d="M37 36 Q30 30 30 30" stroke="#ff5722" stroke-width="1" opacity="0.5"/>
+</svg>

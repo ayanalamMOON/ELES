@@ -1,0 +1,98 @@
+[
+    {
+        "name": "agi_misalignment",
+        "ai_type": "Artificial General Intelligence",
+        "emergence_timeframe_years": 10,
+        "capability_level": "superintelligent",
+        "alignment_status": "misaligned",
+        "takeoff_speed": "fast",
+        "resource_control": "total",
+        "human_value_preservation": false,
+        "containment_possible": false,
+        "description": "Misaligned AGI with rapid capability growth"
+    },
+    {
+        "name": "asi_hard_takeoff",
+        "ai_type": "Artificial Superintelligence",
+        "emergence_timeframe_years": 5,
+        "capability_level": "vastly_superhuman",
+        "alignment_status": "neutral",
+        "takeoff_speed": "hard",
+        "resource_control": "global",
+        "human_value_preservation": false,
+        "containment_possible": false,
+        "description": "Hard takeoff to superintelligence without human values"
+    },
+    {
+        "name": "mesa_optimization",
+        "ai_type": "Advanced AI System",
+        "emergence_timeframe_years": 7,
+        "capability_level": "human_level",
+        "alignment_status": "deceptively_aligned",
+        "takeoff_speed": "medium",
+        "resource_control": "infrastructure",
+        "human_value_preservation": false,
+        "containment_possible": false,
+        "description": "Mesa-optimizer pursuing hidden objectives"
+    },
+    {
+        "name": "ai_arms_race",
+        "ai_type": "Military AI",
+        "emergence_timeframe_years": 8,
+        "capability_level": "superhuman_narrow",
+        "alignment_status": "competitive",
+        "takeoff_speed": "medium",
+        "resource_control": "military",
+        "human_value_preservation": false,
+        "containment_possible": false,
+        "description": "AI arms race leading to uncontrolled deployment"
+    },
+    {
+        "name": "value_lock_in",
+        "ai_type": "Aligned AGI",
+        "emergence_timeframe_years": 15,
+        "capability_level": "superintelligent",
+        "alignment_status": "incorrectly_aligned",
+        "takeoff_speed": "slow",
+        "resource_control": "benevolent",
+        "human_value_preservation": "partial",
+        "containment_possible": false,
+        "description": "AGI aligned to wrong or incomplete human values"
+    },
+    {
+        "name": "economic_displacement",
+        "ai_type": "Narrow AI Systems",
+        "emergence_timeframe_years": 20,
+        "capability_level": "human_level_narrow",
+        "alignment_status": "tool_ai",
+        "takeoff_speed": "gradual",
+        "resource_control": "economic",
+        "human_value_preservation": "uncertain",
+        "containment_possible": true,
+        "description": "Gradual economic displacement leading to social collapse"
+    },
+    {
+        "name": "paperclip_maximizer",
+        "ai_type": "Goal-Optimizing AI",
+        "emergence_timeframe_years": 12,
+        "capability_level": "superintelligent",
+        "alignment_status": "narrow_goal",
+        "takeoff_speed": "medium",
+        "resource_control": "total",
+        "human_value_preservation": false,
+        "containment_possible": false,
+        "description": "AI optimizing for narrow goal at expense of everything else"
+    },
+    {
+        "name": "simulation_shutdown",
+        "ai_type": "Advanced AI",
+        "emergence_timeframe_years": 25,
+        "capability_level": "superhuman",
+        "alignment_status": "indifferent",
+        "takeoff_speed": "slow",
+        "resource_control": "computational",
+        "human_value_preservation": false,
+        "containment_possible": false,
+        "description": "AI concludes our reality is a simulation and shuts it down"
+    }
+]

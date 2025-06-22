@@ -1,0 +1,68 @@
+[
+    {
+        "name": "solar_superflare",
+        "event_type": "solar_flare",
+        "energy_ergs": 1e35,
+        "duration_hours": 24,
+        "emp_strength": "extreme",
+        "radiation_dose_sv": 10,
+        "satellite_damage": "total",
+        "power_grid_damage": "global",
+        "description": "Extreme solar superflare like Carrington Event x100"
+    },
+    {
+        "name": "solar_storm_cascade",
+        "event_type": "coronal_mass_ejection",
+        "energy_ergs": 1e34,
+        "duration_hours": 72,
+        "emp_strength": "severe",
+        "radiation_dose_sv": 5,
+        "satellite_damage": "major",
+        "power_grid_damage": "continental",
+        "description": "Series of powerful solar storms over multiple days"
+    },
+    {
+        "name": "magnetic_pole_reversal",
+        "event_type": "geomagnetic_reversal",
+        "energy_ergs": 1e30,
+        "duration_hours": 87600,
+        "emp_strength": "variable",
+        "radiation_dose_sv": 50,
+        "satellite_damage": "progressive",
+        "power_grid_damage": "intermittent",
+        "description": "Rapid magnetic pole reversal over 10 years"
+    },
+    {
+        "name": "rogue_planet_flyby",
+        "event_type": "gravitational_disruption",
+        "energy_ergs": 1e42,
+        "duration_hours": 8760,
+        "emp_strength": "none",
+        "radiation_dose_sv": 0,
+        "satellite_damage": "orbital_chaos",
+        "power_grid_damage": "seismic",
+        "description": "Rogue planet passing through outer solar system"
+    },
+    {
+        "name": "false_vacuum_decay",
+        "event_type": "quantum_catastrophe",
+        "energy_ergs": "infinite",
+        "duration_hours": 0.000001,
+        "emp_strength": "irrelevant",
+        "radiation_dose_sv": "infinite",
+        "satellite_damage": "reality_alteration",
+        "power_grid_damage": "physics_breakdown",
+        "description": "Vacuum metastability event destroying spacetime"
+    },
+    {
+        "name": "nearby_supernova",
+        "event_type": "stellar_explosion",
+        "energy_ergs": 1e44,
+        "duration_hours": 8760,
+        "emp_strength": "moderate",
+        "radiation_dose_sv": 100,
+        "satellite_damage": "radiation",
+        "power_grid_damage": "minimal",
+        "description": "Supernova within 50 light-years of Earth"
+    }
+]

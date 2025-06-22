@@ -1,0 +1,22 @@
+# Distant Gamma-Ray Burst
+scenario_name: "Distant Gamma-Ray Burst"
+description: "Gamma-ray burst from star beyond 3000 light-years"
+event_type: "gamma_ray_burst"
+severity_estimate: 2
+historical_context: "Regular occurrence with minimal Earth impact"
+
+parameters:
+  distance_ly: 5000
+  duration_seconds: 30
+  energy_erg: 1e44
+
+expected_outcomes:
+  ozone_depletion_percent: 10
+  uv_radiation_increase: 1.2
+  mass_extinction_probability: 0.1
+  recovery_time_years: 100
+  satellite_damage: "moderate"
+
+notes: |
+  Distant gamma-ray bursts occur regularly and cause minimal direct damage
+  to Earth. May damage satellites and cause minor ozone depletion.

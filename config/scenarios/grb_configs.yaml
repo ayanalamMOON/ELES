@@ -1,0 +1,94 @@
+# Gamma-Ray Burst Scenario Configurations
+
+scenarios:
+  - name: "distant_grb"
+    description: "Distant galaxy gamma-ray burst"
+    category: "gamma_ray_burst"
+    severity_level: 2
+    enabled: true
+    data_source: "grb_samples.json"
+    sample_key: "moderate_distant_grb"
+
+    parameters:
+      distance_ly: 25000
+      energy_erg: 1e43
+      duration_seconds: 15
+      beam_angle_degrees: 4
+      earth_in_beam: true
+
+    effects:
+      ozone_depletion_percent: 20
+      uv_radiation_increase: 1.5
+      atmospheric_chemistry_change: true
+      satellite_damage: "minor"
+      communication_disruption: "temporary"
+
+  - name: "galactic_grb"
+    description: "Galactic gamma-ray burst"
+    category: "gamma_ray_burst"
+    severity_level: 4
+    enabled: true
+    data_source: "grb_samples.json"
+    sample_key: "wr104_grb"
+
+    parameters:
+      distance_ly: 8000
+      energy_erg: 1e44
+      duration_seconds: 20
+      beam_angle_degrees: 2
+      earth_in_beam: true
+
+    effects:
+      ozone_depletion_percent: 50
+      uv_radiation_increase: 5
+      atmospheric_chemistry_change: true
+      satellite_damage: "major"
+      communication_disruption: "extended"
+      mass_extinction_risk: 0.3
+
+  - name: "nearby_grb"
+    description: "Nearby star gamma-ray burst"
+    category: "gamma_ray_burst"
+    severity_level: 5
+    enabled: true
+    data_source: "grb_samples.json"
+    sample_key: "proximal_grb_betelgeuse"
+
+    parameters:
+      distance_ly: 650
+      energy_erg: 1e44
+      duration_seconds: 10
+      beam_angle_degrees: 5
+      earth_in_beam: true
+
+    effects:
+      ozone_depletion_percent: 75
+      uv_radiation_increase: 10
+      atmospheric_chemistry_change: true
+      satellite_damage: "total"
+      communication_disruption: "permanent"
+      mass_extinction_risk: 0.7
+
+  - name: "extreme_grb"
+    description: "Extreme nearby gamma-ray burst"
+    category: "gamma_ray_burst"
+    severity_level: 6
+    enabled: true
+    data_source: "grb_samples.json"
+    sample_key: "extreme_nearby_grb"
+
+    parameters:
+      distance_ly: 1000
+      energy_erg: 1e45
+      duration_seconds: 60
+      beam_angle_degrees: 1
+      earth_in_beam: true
+
+    effects:
+      ozone_depletion_percent: 90
+      uv_radiation_increase: 20
+      atmospheric_chemistry_change: true
+      satellite_damage: "total"
+      communication_disruption: "permanent"
+      mass_extinction_risk: 0.9
+      civilization_collapse_risk: 0.8

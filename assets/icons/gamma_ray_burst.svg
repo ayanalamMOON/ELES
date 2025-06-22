@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="24" cy="24" r="22" fill="#0a0a0a" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Central source -->
+  <circle cx="24" cy="24" r="4" fill="#e1f5fe" stroke="#b3e5fc" stroke-width="1"/>
+
+  <!-- Gamma ray beams -->
+  <path d="M24 24 L24 4" stroke="#00e676" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 24 L40 12" stroke="#00e676" stroke-width="3" stroke-linecap="round"/>
+  <path d="M24 24 L40 36" stroke="#00e676" stroke-width="3" stroke-linecap="round"/>
+  <path d="M24 24 L8 12" stroke="#00e676" stroke-width="3" stroke-linecap="round"/>
+  <path d="M24 24 L8 36" stroke="#00e676" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Energy waves -->
+  <circle cx="24" cy="24" r="8" fill="none" stroke="#4caf50" stroke-width="2" opacity="0.7"/>
+  <circle cx="24" cy="24" r="12" fill="none" stroke="#8bc34a" stroke-width="2" opacity="0.5"/>
+  <circle cx="24" cy="24" r="16" fill="none" stroke="#cddc39" stroke-width="2" opacity="0.3"/>
+
+  <!-- Radiation symbol -->
+  <path d="M24 16 L24 12 M24 16 L28 14 M24 16 L20 14" stroke="#ffeb3b" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Particle effects -->
+  <circle cx="18" cy="10" r="1" fill="#00e676"/>
+  <circle cx="30" cy="8" r="1" fill="#4caf50"/>
+  <circle cx="38" cy="18" r="1" fill="#8bc34a"/>
+  <circle cx="38" cy="30" r="1" fill="#cddc39"/>
+  <circle cx="30" cy="40" r="1" fill="#00e676"/>
+  <circle cx="18" cy="38" r="1" fill="#4caf50"/>
+  <circle cx="10" cy="30" r="1" fill="#8bc34a"/>
+  <circle cx="10" cy="18" r="1" fill="#cddc39"/>
+</svg>

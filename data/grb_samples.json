@@ -1,0 +1,86 @@
+[
+    {
+        "name": "proximal_grb_betelgeuse",
+        "source": "Betelgeuse",
+        "distance_ly": 650,
+        "energy_erg": 1e44,
+        "duration_seconds": 10,
+        "beam_angle_degrees": 5,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 75,
+        "uv_radiation_increase": 10,
+        "description": "Gamma-ray burst from nearby Betelgeuse supernova"
+    },
+    {
+        "name": "wr104_grb",
+        "source": "WR 104",
+        "distance_ly": 8000,
+        "energy_erg": 1e44,
+        "duration_seconds": 20,
+        "beam_angle_degrees": 2,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 50,
+        "uv_radiation_increase": 5,
+        "description": "Long-duration GRB from Wolf-Rayet star WR 104"
+    },
+    {
+        "name": "short_grb_kilokilonova",
+        "source": "Neutron star merger",
+        "distance_ly": 1000,
+        "energy_erg": 1e43,
+        "duration_seconds": 2,
+        "beam_angle_degrees": 10,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 35,
+        "uv_radiation_increase": 3,
+        "description": "Short GRB from nearby neutron star merger"
+    },
+    {
+        "name": "hypernova_grb",
+        "source": "Hypernova",
+        "distance_ly": 3000,
+        "energy_erg": 5e44,
+        "duration_seconds": 30,
+        "beam_angle_degrees": 3,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 60,
+        "uv_radiation_increase": 8,
+        "description": "Extremely energetic GRB from hypernova explosion"
+    },
+    {
+        "name": "magnetar_giant_flare",
+        "source": "SGR 1806-20",
+        "distance_ly": 50000,
+        "energy_erg": 1e46,
+        "duration_seconds": 0.2,
+        "beam_angle_degrees": 360,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 25,
+        "uv_radiation_increase": 2,
+        "description": "Giant flare from galactic magnetar"
+    },
+    {
+        "name": "moderate_distant_grb",
+        "source": "Distant galaxy",
+        "distance_ly": 25000,
+        "energy_erg": 1e43,
+        "duration_seconds": 15,
+        "beam_angle_degrees": 4,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 20,
+        "uv_radiation_increase": 1.5,
+        "description": "Moderate GRB from within our galaxy"
+    },
+    {
+        "name": "extreme_nearby_grb",
+        "source": "Eta Carinae",
+        "distance_ly": 7500,
+        "energy_erg": 1e45,
+        "duration_seconds": 60,
+        "beam_angle_degrees": 1,
+        "earth_in_beam": true,
+        "ozone_depletion_percent": 90,
+        "uv_radiation_increase": 20,
+        "description": "Extreme GRB from Eta Carinae system"
+    }
+]

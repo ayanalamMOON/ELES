@@ -1,0 +1,14 @@
+scenario_name: "Chicxulub Recreation"
+description: "Recreation of the Chicxulub impact that killed the dinosaurs"
+event_type: "asteroid"
+parameters:
+  diameter_km: 10.0
+  density_kg_m3: 3000
+  velocity_km_s: 20.0
+  target_type: "continental"
+
+metadata:
+  historical_basis: "Chicxulub crater, Yucatan Peninsula"
+  time_period: "66 million years ago"
+  extinction_rate: 0.75
+  notes: "Led to the extinction of non-avian dinosaurs"

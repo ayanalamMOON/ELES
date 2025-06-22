@@ -1,0 +1,87 @@
+# Asteroid Impact Scenario Configurations
+
+scenarios:
+  - name: "small_asteroid"
+    description: "Small asteroid impact (100m diameter)"
+    category: "asteroid"
+    severity_level: 2
+    enabled: true
+    data_source: "asteroid_samples.json"
+    sample_key: "tunguska"
+
+    parameters:
+      diameter_km: 0.1
+      velocity_km_s: 20
+      density_kg_m3: 3000
+      impact_energy_mt: 15
+
+    impact_effects:
+      crater_diameter_km: 1.2
+      devastation_radius_km: 50
+      seismic_magnitude: 6.0
+      tsunamis: false
+      global_effects: false
+
+  - name: "city_killer"
+    description: "City-killer asteroid (200m diameter)"
+    category: "asteroid"
+    severity_level: 3
+    enabled: true
+    data_source: "asteroid_samples.json"
+    sample_key: "city_killer"
+
+    parameters:
+      diameter_km: 0.2
+      velocity_km_s: 25
+      density_kg_m3: 3500
+      impact_energy_mt: 1000
+
+    impact_effects:
+      crater_diameter_km: 3
+      devastation_radius_km: 200
+      seismic_magnitude: 7.5
+      tsunamis: true
+      global_effects: false
+
+  - name: "regional_disaster"
+    description: "Regional disaster asteroid (1km diameter)"
+    category: "asteroid"
+    severity_level: 4
+    enabled: true
+    data_source: "asteroid_samples.json"
+    sample_key: "regional_disaster"
+
+    parameters:
+      diameter_km: 1.0
+      velocity_km_s: 22
+      density_kg_m3: 4000
+      impact_energy_mt: 100000
+
+    impact_effects:
+      crater_diameter_km: 15
+      devastation_radius_km: 1000
+      seismic_magnitude: 9.0
+      tsunamis: true
+      global_effects: true
+
+  - name: "extinction_level"
+    description: "Extinction-level asteroid (10km diameter)"
+    category: "asteroid"
+    severity_level: 6
+    enabled: true
+    data_source: "asteroid_samples.json"
+    sample_key: "global_catastrophe"
+
+    parameters:
+      diameter_km: 10.0
+      velocity_km_s: 20
+      density_kg_m3: 3500
+      impact_energy_mt: 100000000
+
+    impact_effects:
+      crater_diameter_km: 150
+      devastation_radius_km: 5000
+      seismic_magnitude: 11.0
+      tsunamis: true
+      global_effects: true
+      nuclear_winter_years: 5

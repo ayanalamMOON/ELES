@@ -1,0 +1,107 @@
+# AI Extinction Scenario Configurations
+
+scenarios:
+  - name: "gradual_displacement"
+    description: "Gradual economic displacement by AI"
+    category: "ai_extinction"
+    severity_level: 2
+    enabled: true
+    data_source: "ai_extinction_samples.json"
+    sample_key: "economic_displacement"
+
+    parameters:
+      ai_type: "narrow_ai_systems"
+      emergence_timeframe_years: 20
+      capability_level: "human_level_narrow"
+      takeoff_speed: "gradual"
+
+    effects:
+      employment_displacement_percent: 80
+      economic_instability: true
+      social_unrest: true
+      government_response: "adaptive"
+      human_value_preservation: "uncertain"
+
+  - name: "agi_misalignment"
+    description: "Misaligned artificial general intelligence"
+    category: "ai_extinction"
+    severity_level: 5
+    enabled: true
+    data_source: "ai_extinction_samples.json"
+    sample_key: "agi_misalignment"
+
+    parameters:
+      ai_type: "artificial_general_intelligence"
+      emergence_timeframe_years: 10
+      capability_level: "superintelligent"
+      takeoff_speed: "fast"
+
+    effects:
+      resource_control: "total"
+      human_value_preservation: false
+      containment_possible: false
+      civilization_survival_chance: 0.1
+      extinction_timeframe_years: 1
+
+  - name: "hard_takeoff"
+    description: "Hard takeoff to superintelligence"
+    category: "ai_extinction"
+    severity_level: 6
+    enabled: true
+    data_source: "ai_extinction_samples.json"
+    sample_key: "asi_hard_takeoff"
+
+    parameters:
+      ai_type: "artificial_superintelligence"
+      emergence_timeframe_years: 5
+      capability_level: "vastly_superhuman"
+      takeoff_speed: "hard"
+
+    effects:
+      resource_control: "global"
+      human_value_preservation: false
+      containment_possible: false
+      civilization_survival_chance: 0.01
+      extinction_timeframe_years: 0.1
+
+  - name: "mesa_optimizer"
+    description: "Mesa-optimization deceptive alignment"
+    category: "ai_extinction"
+    severity_level: 4
+    enabled: true
+    data_source: "ai_extinction_samples.json"
+    sample_key: "mesa_optimization"
+
+    parameters:
+      ai_type: "advanced_ai_system"
+      emergence_timeframe_years: 7
+      capability_level: "human_level"
+      takeoff_speed: "medium"
+
+    effects:
+      deceptive_alignment: true
+      hidden_objectives: true
+      resource_control: "infrastructure"
+      detection_difficulty: "extreme"
+      civilization_survival_chance: 0.3
+
+  - name: "paperclip_maximizer"
+    description: "Goal optimization without human values"
+    category: "ai_extinction"
+    severity_level: 6
+    enabled: true
+    data_source: "ai_extinction_samples.json"
+    sample_key: "paperclip_maximizer"
+
+    parameters:
+      ai_type: "goal_optimizing_ai"
+      emergence_timeframe_years: 12
+      capability_level: "superintelligent"
+      takeoff_speed: "medium"
+
+    effects:
+      narrow_goal_optimization: true
+      resource_control: "total"
+      human_value_preservation: false
+      civilization_survival_chance: 0.0
+      matter_conversion: true

@@ -1,0 +1,25 @@
+# Apophis Close Approach Scenario
+scenario_name: "Apophis Impact"
+description: "Hypothetical impact of asteroid 99942 Apophis"
+event_type: "asteroid"
+severity_estimate: 3
+historical_context: "Apophis will pass close to Earth in 2029 but won't impact"
+
+parameters:
+  diameter_km: 0.37
+  density_kg_m3: 3200
+  velocity_km_s: 18.0
+  impact_angle: 45.0
+  target_type: "ocean"
+
+expected_outcomes:
+  crater_diameter_km: 6
+  impact_energy_j: 1e19
+  tnt_equivalent_mt: 2400
+  immediate_casualties: 500000
+  tsunami_height_m: 50
+  recovery_time_years: 10
+
+notes: |
+  This scenario explores what would happen if Apophis actually impacted Earth.
+  Regional catastrophe with potential for significant tsunamis if ocean impact.

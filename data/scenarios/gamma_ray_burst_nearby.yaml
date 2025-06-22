@@ -1,0 +1,23 @@
+# Nearby Gamma-Ray Burst
+scenario_name: "Nearby Gamma-Ray Burst"
+description: "Gamma-ray burst from star within 1000 light-years"
+event_type: "gamma_ray_burst"
+severity_estimate: 5
+historical_context: "May have caused Ordovician extinction 450 million years ago"
+
+parameters:
+  distance_ly: 1000
+  duration_seconds: 10
+  energy_erg: 1e44
+
+expected_outcomes:
+  ozone_depletion_percent: 75
+  uv_radiation_increase: 10
+  mass_extinction_probability: 0.8
+  recovery_time_years: 100000
+  affected_hemisphere: "facing"
+
+notes: |
+  Gamma-ray burst would strip away ozone layer, causing deadly UV radiation
+  to reach Earth's surface. Would trigger mass extinction through ecosystem
+  collapse.

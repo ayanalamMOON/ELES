@@ -1,0 +1,95 @@
+# Pandemic Scenario Configurations
+
+scenarios:
+  - name: "seasonal_flu"
+    description: "Severe seasonal influenza outbreak"
+    category: "pandemic"
+    severity_level: 1
+    enabled: true
+    data_source: "pandemic_samples.json"
+    sample_key: "seasonal_influenza"
+
+    parameters:
+      pathogen_type: "influenza"
+      transmission_rate: 1.3
+      case_fatality_rate: 0.001
+      incubation_period_days: 2
+      infectious_period_days: 7
+
+    effects:
+      global_spread: false
+      healthcare_overwhelm: false
+      economic_disruption: "minimal"
+      social_disruption: "minimal"
+      duration_months: 6
+
+  - name: "severe_pandemic"
+    description: "Severe pandemic (1918 flu level)"
+    category: "pandemic"
+    severity_level: 4
+    enabled: true
+    data_source: "pandemic_samples.json"
+    sample_key: "severe_pandemic"
+
+    parameters:
+      pathogen_type: "influenza"
+      transmission_rate: 2.0
+      case_fatality_rate: 0.025
+      incubation_period_days: 3
+      infectious_period_days: 10
+
+    effects:
+      global_spread: true
+      healthcare_overwhelm: true
+      economic_disruption: "severe"
+      social_disruption: "major"
+      duration_months: 24
+      multiple_waves: true
+
+  - name: "engineered_pathogen"
+    description: "Engineered biological weapon"
+    category: "pandemic"
+    severity_level: 6
+    enabled: true
+    data_source: "pandemic_samples.json"
+    sample_key: "engineered_pathogen"
+
+    parameters:
+      pathogen_type: "engineered"
+      transmission_rate: 4.0
+      case_fatality_rate: 0.30
+      incubation_period_days: 14
+      infectious_period_days: 21
+
+    effects:
+      global_spread: true
+      healthcare_overwhelm: true
+      economic_disruption: "total"
+      social_disruption: "collapse"
+      duration_months: 60
+      multiple_waves: true
+      civilization_threat: true
+
+  - name: "prion_disease"
+    description: "Transmissible prion disease outbreak"
+    category: "pandemic"
+    severity_level: 5
+    enabled: true
+    data_source: "pandemic_samples.json"
+    sample_key: "prion_disease"
+
+    parameters:
+      pathogen_type: "prion"
+      transmission_rate: 0.5
+      case_fatality_rate: 1.0
+      incubation_period_days: 365
+      infectious_period_days: 730
+
+    effects:
+      global_spread: true
+      healthcare_overwhelm: true
+      economic_disruption: "severe"
+      social_disruption: "major"
+      duration_months: 120
+      delayed_onset: true
+      untreatable: true

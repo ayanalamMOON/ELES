@@ -1,0 +1,86 @@
+# Severity Level Definitions
+severity_levels:
+  1:
+    name: "Minimal Impact"
+    description: "Local effects with minimal casualties"
+    color: "#00ff00"
+    examples: ["Small asteroid airbursts", "Minor volcanic eruptions"]
+    typical_effects:
+      - "Property damage in immediate area"
+      - "Few to no casualties"
+      - "Recovery within months"
+
+  2:
+    name: "Local Catastrophe"
+    description: "Significant local destruction"
+    color: "#ffff00"
+    examples: ["Tunguska event", "Major earthquakes"]
+    typical_effects:
+      - "City-scale destruction"
+      - "Hundreds to thousands of casualties"
+      - "Recovery within years"
+
+  3:
+    name: "Regional Disaster"
+    description: "Multi-country effects"
+    color: "#ff8000"
+    examples: ["Apophis-scale asteroid", "Major volcanic eruption"]
+    typical_effects:
+      - "Multi-national impact"
+      - "Thousands to millions affected"
+      - "Economic disruption across region"
+
+  4:
+    name: "Continental Crisis"
+    description: "Continent-wide effects"
+    color: "#ff0000"
+    examples: ["Spanish Flu pandemic", "Large volcanic eruption"]
+    typical_effects:
+      - "Continental-scale disruption"
+      - "Millions of casualties"
+      - "Civilization stress but survival"
+
+  5:
+    name: "Global Catastrophe"
+    description: "Worldwide effects threatening civilization"
+    color: "#800080"
+    examples: ["Nuclear winter", "Severe pandemic"]
+    typical_effects:
+      - "Global civilization at risk"
+      - "Hundreds of millions affected"
+      - "Technology/knowledge loss possible"
+
+  6:
+    name: "Extinction Level Event"
+    description: "Threatens human species survival"
+    color: "#000000"
+    examples: ["Chicxulub-scale asteroid", "Runaway climate change"]
+    typical_effects:
+      - "Human extinction possible"
+      - "Mass extinction of other species"
+      - "Planetary habitability threatened"
+
+risk_thresholds:
+  economic_impact_billion_usd:
+    minimal: 1
+    local: 100
+    regional: 1000
+    continental: 10000
+    global: 100000
+    extinction: 1000000
+
+  casualty_count:
+    minimal: 100
+    local: 10000
+    regional: 1000000
+    continental: 100000000
+    global: 1000000000
+    extinction: 5000000000
+
+  recovery_time_years:
+    minimal: 1
+    local: 10
+    regional: 100
+    continental: 1000
+    global: 10000
+    extinction: "never"

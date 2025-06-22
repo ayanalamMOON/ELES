@@ -1,0 +1,97 @@
+# Scenario Set Definitions
+# This file defines predefined sets of scenarios for different purposes
+
+scenario_sets:
+  educational:
+    name: "Educational Scenarios"
+    description: "Scenarios designed for educational purposes and demonstration"
+    scenarios:
+      - asteroid_configs.small_asteroid
+      - pandemic_configs.seasonal_flu
+      - climate_configs.moderate_warming
+      - supervolcano_configs.moderate_eruption
+      - nuclear_configs.limited_exchange
+      - cosmic_configs.solar_storm
+    difficulty: "beginner"
+
+  realistic:
+    name: "Realistic Near-Term Threats"
+    description: "Scenarios based on scientifically plausible near-term risks"
+    scenarios:
+      - asteroid_configs.city_killer
+      - pandemic_configs.severe_pandemic
+      - climate_configs.dangerous_warming
+      - nuclear_configs.regional_war
+      - ai_configs.gradual_displacement
+      - cosmic_configs.solar_superflare
+    difficulty: "intermediate"
+
+  catastrophic:
+    name: "Catastrophic Risk Scenarios"
+    description: "High-impact, civilization-threatening events"
+    scenarios:
+      - asteroid_configs.extinction_level
+      - supervolcano_configs.yellowstone_eruption
+      - climate_configs.runaway_greenhouse
+      - pandemic_configs.engineered_pathogen
+      - nuclear_configs.global_nuclear_war
+      - grb_configs.nearby_grb
+    difficulty: "advanced"
+
+  extinction_level:
+    name: "Extinction-Level Events"
+    description: "Scenarios with potential for human extinction"
+    scenarios:
+      - asteroid_configs.extinction_level
+      - supervolcano_configs.toba_style
+      - climate_configs.runaway_greenhouse
+      - pandemic_configs.engineered_pathogen
+      - ai_configs.hard_takeoff
+      - grb_configs.extreme_grb
+      - nuclear_configs.global_nuclear_war
+      - cosmic_configs.nearby_supernova
+    difficulty: "expert"
+
+  research:
+    name: "Research Scenarios"
+    description: "Scenarios for academic research and risk assessment"
+    scenarios:
+      - asteroid_configs.regional_disaster
+      - supervolcano_configs.campi_flegrei_vei7
+      - climate_configs.methane_bomb
+      - pandemic_configs.prion_disease
+      - ai_configs.mesa_optimizer
+      - grb_configs.galactic_grb
+      - nuclear_configs.accidental_war
+      - cosmic_configs.magnetic_reversal
+    difficulty: "expert"
+
+  demo:
+    name: "Quick Demo"
+    description: "Fast scenarios for demonstrations"
+    scenarios:
+      - asteroid_configs.small_asteroid
+      - pandemic_configs.seasonal_flu
+      - nuclear_configs.terrorist_nuclear
+    duration_minutes: 5
+
+  workshop:
+    name: "Workshop Series"
+    description: "Progressive scenarios for workshops and training"
+    scenarios:
+      - asteroid_configs.small_asteroid
+      - asteroid_configs.city_killer
+      - asteroid_configs.regional_disaster
+      - pandemic_configs.seasonal_flu
+      - pandemic_configs.severe_pandemic
+      - climate_configs.moderate_warming
+      - climate_configs.dangerous_warming
+    progression: "linear"
+
+# Default scenario set configurations
+defaults:
+  scenario_set: "educational"
+  auto_progression: false
+  save_results: true
+  export_format: "json"
+  visualization: true

@@ -1,0 +1,26 @@
+# Black Death Pandemic Scenario
+scenario_name: "Black Death-like Pandemic"
+description: "Pandemic with mortality rate similar to medieval Black Death"
+event_type: "pandemic"
+severity_estimate: 5
+historical_context: "Black Death killed 30-60% of Europe's population in 14th century"
+
+parameters:
+  r0: 1.8
+  mortality_rate: 0.50
+  incubation_period_days: 14
+  infectious_period_days: 7
+  population: 8000000000
+
+expected_outcomes:
+  total_infected: 4000000000
+  total_deaths: 2000000000
+  peak_infected: 400000000
+  epidemic_duration_days: 1460
+  gdp_loss_percent: 60
+  social_collapse: true
+
+notes: |
+  Modern version of Black Death would be catastrophic. Higher mortality
+  rate but lower transmission than Spanish Flu. Would fundamentally
+  reshape human civilization.

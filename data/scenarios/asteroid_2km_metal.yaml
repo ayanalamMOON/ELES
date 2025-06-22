@@ -1,0 +1,26 @@
+# 2km Metal Asteroid Impact Scenario
+scenario_name: "2km Metal Asteroid Impact"
+description: "Large metallic asteroid similar to the one that caused dinosaur extinction"
+event_type: "asteroid"
+severity_estimate: 6
+historical_context: "Similar to Chicxulub impact 66 million years ago"
+
+parameters:
+  diameter_km: 2.0
+  density_kg_m3: 8000
+  velocity_km_s: 20.0
+  impact_angle: 45.0
+  target_type: "continental"
+
+expected_outcomes:
+  crater_diameter_km: 35
+  impact_energy_j: 6.7e21
+  tnt_equivalent_mt: 1600000
+  immediate_casualties: 10000000
+  global_temperature_drop_c: 10
+  recovery_time_years: "never"
+
+notes: |
+  This scenario represents a catastrophic asteroid impact that would likely
+  cause mass extinction. Based on the asteroid impact that killed the dinosaurs
+  but adjusted for modern population density and infrastructure.

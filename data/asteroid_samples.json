@@ -1,0 +1,50 @@
+[
+    {
+        "name": "2km_metal",
+        "diameter_km": 2.0,
+        "density_kg_m3": 8000,
+        "velocity_km_s": 20.0,
+        "composition": "iron-nickel",
+        "description": "Large metallic asteroid similar to Chicxulub impactor"
+    },
+    {
+        "name": "apophis",
+        "diameter_km": 0.37,
+        "density_kg_m3": 3200,
+        "velocity_km_s": 18.0,
+        "composition": "stony",
+        "description": "Near-Earth asteroid 99942 Apophis"
+    },
+    {
+        "name": "tunguska",
+        "diameter_km": 0.06,
+        "density_kg_m3": 3000,
+        "velocity_km_s": 20.0,
+        "composition": "stony",
+        "description": "Small asteroid similar to 1908 Tunguska event"
+    },
+    {
+        "name": "city_killer",
+        "diameter_km": 0.2,
+        "density_kg_m3": 3500,
+        "velocity_km_s": 25.0,
+        "composition": "stony",
+        "description": "Medium-sized asteroid capable of destroying a city"
+    },
+    {
+        "name": "regional_disaster",
+        "diameter_km": 1.0,
+        "density_kg_m3": 4000,
+        "velocity_km_s": 22.0,
+        "composition": "mixed",
+        "description": "Large asteroid causing regional devastation"
+    },
+    {
+        "name": "global_catastrophe",
+        "diameter_km": 5.0,
+        "density_kg_m3": 3500,
+        "velocity_km_s": 20.0,
+        "composition": "stony",
+        "description": "Very large asteroid causing global effects"
+    }
+]

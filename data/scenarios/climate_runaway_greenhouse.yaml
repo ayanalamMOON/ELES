@@ -1,0 +1,24 @@
+# Runaway Greenhouse Effect
+scenario_name: "Runaway Greenhouse Effect"
+description: "Irreversible climate change leading to Venus-like conditions"
+event_type: "climate_collapse"
+severity_estimate: 6
+historical_context: "Venus experienced runaway greenhouse effect"
+
+parameters:
+  temperature_change_c: 30
+  co2_concentration_ppm: 10000
+  water_vapor_feedback: true
+  ocean_evaporation: true
+
+expected_outcomes:
+  surface_temperature_c: 80
+  ocean_loss_percent: 100
+  atmospheric_pressure_bar: 10
+  habitability: false
+  human_survival_probability: 0
+
+notes: |
+  Complete loss of habitability as Earth becomes Venus-like. All water
+  evaporates and escapes to space. Human extinction inevitable without
+  off-world colonies.

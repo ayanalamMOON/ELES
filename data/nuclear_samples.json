@@ -1,0 +1,84 @@
+[
+    {
+        "name": "global_thermonuclear_war",
+        "conflict_type": "full_scale_exchange",
+        "warheads_detonated": 4000,
+        "total_yield_mt": 1500,
+        "targets": [
+            "major_cities",
+            "military_bases",
+            "industrial_centers"
+        ],
+        "fallout_area_km2": 500000,
+        "nuclear_winter_duration_years": 10,
+        "emp_coverage": "global",
+        "description": "Full-scale nuclear exchange between major powers"
+    },
+    {
+        "name": "regional_nuclear_war",
+        "conflict_type": "regional_exchange",
+        "warheads_detonated": 100,
+        "total_yield_mt": 50,
+        "targets": [
+            "military_bases",
+            "population_centers"
+        ],
+        "fallout_area_km2": 50000,
+        "nuclear_winter_duration_years": 2,
+        "emp_coverage": "regional",
+        "description": "Regional nuclear conflict between smaller powers"
+    },
+    {
+        "name": "terrorist_dirty_bomb",
+        "conflict_type": "radiological_weapon",
+        "warheads_detonated": 5,
+        "total_yield_mt": 0.001,
+        "targets": [
+            "major_cities"
+        ],
+        "fallout_area_km2": 100,
+        "nuclear_winter_duration_years": 0,
+        "emp_coverage": "local",
+        "description": "Multiple dirty bomb attacks in major cities"
+    },
+    {
+        "name": "nuclear_accident_cascade",
+        "conflict_type": "accidental_war",
+        "warheads_detonated": 500,
+        "total_yield_mt": 200,
+        "targets": [
+            "accidental_targets"
+        ],
+        "fallout_area_km2": 100000,
+        "nuclear_winter_duration_years": 3,
+        "emp_coverage": "continental",
+        "description": "Accidental nuclear war triggered by system failure"
+    },
+    {
+        "name": "nuclear_terrorism_escalation",
+        "conflict_type": "terrorism_escalation",
+        "warheads_detonated": 50,
+        "total_yield_mt": 25,
+        "targets": [
+            "symbolic_targets",
+            "infrastructure"
+        ],
+        "fallout_area_km2": 25000,
+        "nuclear_winter_duration_years": 1,
+        "emp_coverage": "national",
+        "description": "Nuclear terrorism leading to broader conflict"
+    },
+    {
+        "name": "limited_tactical_exchange",
+        "conflict_type": "tactical_nuclear",
+        "warheads_detonated": 20,
+        "total_yield_mt": 2,
+        "targets": [
+            "battlefield_targets"
+        ],
+        "fallout_area_km2": 5000,
+        "nuclear_winter_duration_years": 0.5,
+        "emp_coverage": "battlefield",
+        "description": "Limited tactical nuclear weapon use in conventional war"
+    }
+]

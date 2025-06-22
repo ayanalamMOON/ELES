@@ -1,0 +1,26 @@
+# Default Demo Scenario
+scenario_name: "Demo Asteroid Impact"
+description: "Moderate asteroid impact for demonstration purposes"
+event_type: "asteroid"
+severity_estimate: 3
+historical_context: "Similar to large historical impacts"
+
+parameters:
+  diameter_km: 0.5
+  density_kg_m3: 3500
+  velocity_km_s: 20.0
+  impact_angle: 45.0
+  target_type: "continental"
+
+expected_outcomes:
+  crater_diameter_km: 8
+  impact_energy_j: 2e19
+  tnt_equivalent_mt: 4800
+  immediate_casualties: 1000000
+  blast_radius_km: 50
+  recovery_time_years: 50
+
+notes: |
+  This is a moderate asteroid impact scenario used for demonstration
+  and testing purposes. It represents a significant regional disaster
+  but not a global extinction event.

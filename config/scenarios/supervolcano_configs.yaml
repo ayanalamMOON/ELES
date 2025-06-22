@@ -1,0 +1,95 @@
+# Supervolcano Scenario Configurations
+
+scenarios:
+  - name: "moderate_eruption"
+    description: "Moderate supervolcanic eruption (VEI 6)"
+    category: "supervolcano"
+    severity_level: 3
+    enabled: true
+    data_source: "supervolcano_samples.json"
+    sample_key: "moderate_supervolcano"
+
+    parameters:
+      vei: 6
+      magma_volume_km3: 50
+      ash_column_height_km: 30
+      eruption_duration_days: 7
+      sulfur_dioxide_mt: 25
+
+    effects:
+      ash_dispersal_radius_km: 500
+      climate_cooling_years: 1
+      aviation_shutdown_days: 30
+      regional_devastation: true
+      global_impact: false
+
+  - name: "yellowstone_eruption"
+    description: "Yellowstone supervolcano eruption (VEI 8)"
+    category: "supervolcano"
+    severity_level: 5
+    enabled: true
+    data_source: "supervolcano_samples.json"
+    sample_key: "yellowstone_vei8"
+
+    parameters:
+      vei: 8
+      magma_volume_km3: 1000
+      ash_column_height_km: 40
+      eruption_duration_days: 30
+      sulfur_dioxide_mt: 100
+
+    effects:
+      ash_dispersal_radius_km: 1000
+      climate_cooling_years: 6
+      aviation_shutdown_days: 365
+      regional_devastation: true
+      global_impact: true
+      volcanic_winter: true
+
+  - name: "toba_style"
+    description: "Toba-style supervolcanic eruption (VEI 8)"
+    category: "supervolcano"
+    severity_level: 6
+    enabled: true
+    data_source: "supervolcano_samples.json"
+    sample_key: "toba_style"
+
+    parameters:
+      vei: 8
+      magma_volume_km3: 2800
+      ash_column_height_km: 45
+      eruption_duration_days: 45
+      sulfur_dioxide_mt: 200
+
+    effects:
+      ash_dispersal_radius_km: 1500
+      climate_cooling_years: 10
+      aviation_shutdown_days: 730
+      regional_devastation: true
+      global_impact: true
+      volcanic_winter: true
+      population_bottleneck: true
+
+  - name: "extreme_eruption"
+    description: "Theoretical extreme supervolcano (VEI 9)"
+    category: "supervolcano"
+    severity_level: 6
+    enabled: false
+    data_source: "supervolcano_samples.json"
+    sample_key: "extreme_supervolcano"
+
+    parameters:
+      vei: 9
+      magma_volume_km3: 5000
+      ash_column_height_km: 50
+      eruption_duration_days: 90
+      sulfur_dioxide_mt: 500
+
+    effects:
+      ash_dispersal_radius_km: 2000
+      climate_cooling_years: 20
+      aviation_shutdown_days: 1825
+      regional_devastation: true
+      global_impact: true
+      volcanic_winter: true
+      civilization_collapse_risk: 0.8

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="24" cy="24" r="22" fill="#0d47a1" stroke="#1565c0" stroke-width="2"/>
+
+  <!-- Earth -->
+  <circle cx="24" cy="24" r="18" fill="#1976d2"/>
+  <path d="M10 24 Q18 18 24 24 Q30 18 38 24 Q30 30 24 34 Q18 30 10 24" fill="#42a5f5"/>
+
+  <!-- Temperature indicators -->
+  <path d="M6 10 Q12 8 18 10" stroke="#ff1744" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30 10 Q36 8 42 10" stroke="#ff1744" stroke-width="3" stroke-linecap="round"/>
+  <path d="M6 38 Q12 40 18 38" stroke="#ff1744" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30 38 Q36 40 42 38" stroke="#ff1744" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Thermometer -->
+  <rect x="40" y="12" width="4" height="16" rx="2" fill="#f44336"/>
+  <circle cx="42" cy="30" r="3" fill="#f44336"/>
+
+  <!-- Heat waves -->
+  <path d="M8 16 Q12 14 16 16 Q12 18 8 16" fill="none" stroke="#ff5722" stroke-width="2" opacity="0.7"/>
+  <path d="M32 16 Q36 14 40 16 Q36 18 32 16" fill="none" stroke="#ff5722" stroke-width="2" opacity="0.7"/>
+  <path d="M8 32 Q12 30 16 32 Q12 34 8 32" fill="none" stroke="#ff5722" stroke-width="2" opacity="0.7"/>
+</svg>

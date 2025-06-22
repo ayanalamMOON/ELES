@@ -1,0 +1,80 @@
+[
+    {
+        "name": "rapid_warming_rcp85",
+        "scenario_type": "greenhouse_gas",
+        "temperature_increase_c": 4.5,
+        "co2_ppm": 1200,
+        "sea_level_rise_m": 3.0,
+        "ice_sheet_collapse": true,
+        "ocean_acidification_ph": 7.4,
+        "timeframe_years": 80,
+        "description": "Rapid warming scenario based on RCP8.5 pathway"
+    },
+    {
+        "name": "runaway_greenhouse",
+        "scenario_type": "greenhouse_gas",
+        "temperature_increase_c": 8.0,
+        "co2_ppm": 2000,
+        "sea_level_rise_m": 10.0,
+        "ice_sheet_collapse": true,
+        "ocean_acidification_ph": 7.0,
+        "timeframe_years": 120,
+        "description": "Runaway greenhouse effect scenario"
+    },
+    {
+        "name": "methane_clathrate_bomb",
+        "scenario_type": "methane_release",
+        "temperature_increase_c": 6.0,
+        "co2_ppm": 800,
+        "methane_ppb": 10000,
+        "sea_level_rise_m": 5.0,
+        "ice_sheet_collapse": true,
+        "ocean_acidification_ph": 7.2,
+        "timeframe_years": 50,
+        "description": "Massive methane clathrate release scenario"
+    },
+    {
+        "name": "amoc_collapse",
+        "scenario_type": "circulation_collapse",
+        "temperature_increase_c": 3.0,
+        "co2_ppm": 600,
+        "sea_level_rise_m": 1.5,
+        "ice_sheet_collapse": false,
+        "ocean_acidification_ph": 7.6,
+        "timeframe_years": 40,
+        "description": "Atlantic Meridional Overturning Circulation collapse"
+    },
+    {
+        "name": "ice_albedo_feedback",
+        "scenario_type": "feedback_loop",
+        "temperature_increase_c": 5.0,
+        "co2_ppm": 900,
+        "sea_level_rise_m": 4.0,
+        "ice_sheet_collapse": true,
+        "ocean_acidification_ph": 7.3,
+        "timeframe_years": 70,
+        "description": "Accelerated warming due to ice-albedo feedback"
+    },
+    {
+        "name": "moderate_warming",
+        "scenario_type": "greenhouse_gas",
+        "temperature_increase_c": 2.5,
+        "co2_ppm": 500,
+        "sea_level_rise_m": 0.8,
+        "ice_sheet_collapse": false,
+        "ocean_acidification_ph": 7.8,
+        "timeframe_years": 100,
+        "description": "Moderate climate change scenario"
+    },
+    {
+        "name": "wet_bulb_35c",
+        "scenario_type": "extreme_heat",
+        "temperature_increase_c": 7.0,
+        "co2_ppm": 1500,
+        "sea_level_rise_m": 8.0,
+        "ice_sheet_collapse": true,
+        "ocean_acidification_ph": 7.1,
+        "timeframe_years": 90,
+        "description": "Wet-bulb temperature exceeding human survival limits"
+    }
+]

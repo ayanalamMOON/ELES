@@ -1,0 +1,24 @@
+# Snowball Earth Scenario
+scenario_name: "Snowball Earth Event"
+description: "Global glaciation covering entire planet in ice"
+event_type: "climate_collapse"
+severity_estimate: 5
+historical_context: "Occurred multiple times in Earth's history"
+
+parameters:
+  temperature_change_c: -40
+  ice_albedo_feedback: true
+  ocean_freezing: true
+  carbon_cycle_halt: true
+
+expected_outcomes:
+  average_temperature_c: -50
+  ice_coverage_percent: 100
+  ocean_ice_thickness_km: 1
+  photosynthesis_possible: false
+  recovery_time_years: 10000000
+
+notes: |
+  Complete global glaciation would end most complex life. Recovery requires
+  volcanic CO2 buildup over millions of years to break ice-albedo feedback
+  loop.

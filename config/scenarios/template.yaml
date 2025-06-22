@@ -1,0 +1,52 @@
+# Default Scenario Configuration Template
+# This template defines the standard structure for all scenario configurations
+
+name: "scenario_template"
+description: "Template for creating new scenarios"
+category: "template"
+severity_level: 1
+enabled: true
+
+# Basic scenario parameters
+parameters:
+  duration_years: 1
+  affected_population_percent: 0
+  economic_impact_percent: 0
+  infrastructure_damage_percent: 0
+
+# Environmental impacts
+environmental:
+  temperature_change_c: 0
+  sea_level_change_m: 0
+  atmospheric_composition_change: false
+  ecosystem_collapse_risk: 0
+
+# Human impacts
+human_impact:
+  direct_casualties: 0
+  indirect_casualties: 0
+  displacement_millions: 0
+  food_security_impact: "none"
+  water_security_impact: "none"
+  health_system_impact: "none"
+
+# Recovery parameters
+recovery:
+  immediate_recovery_years: 0
+  full_recovery_years: 0
+  technology_setback_years: 0
+  civilization_collapse_risk: 0
+
+# Simulation settings
+simulation:
+  time_step_days: 1
+  geographic_resolution: "global"
+  population_model: "standard"
+  economic_model: "basic"
+
+# Visualization settings
+visualization:
+  map_overlay: true
+  time_series_plots: true
+  casualty_charts: true
+  recovery_timeline: true

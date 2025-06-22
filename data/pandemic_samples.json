@@ -1,0 +1,68 @@
+[
+    {
+        "name": "h5n1_bird_flu",
+        "pathogen_type": "influenza_virus",
+        "transmission_rate": 2.8,
+        "mortality_rate": 0.6,
+        "incubation_period_days": 3,
+        "infectious_period_days": 7,
+        "mutation_rate": 0.003,
+        "origin": "avian",
+        "description": "Highly pathogenic avian influenza with pandemic potential"
+    },
+    {
+        "name": "ebola_variant",
+        "pathogen_type": "filovirus",
+        "transmission_rate": 1.8,
+        "mortality_rate": 0.9,
+        "incubation_period_days": 10,
+        "infectious_period_days": 14,
+        "mutation_rate": 0.001,
+        "origin": "zoonotic",
+        "description": "Highly lethal hemorrhagic fever virus with airborne transmission"
+    },
+    {
+        "name": "antibiotic_resistant_plague",
+        "pathogen_type": "bacteria",
+        "transmission_rate": 3.2,
+        "mortality_rate": 0.8,
+        "incubation_period_days": 2,
+        "infectious_period_days": 10,
+        "mutation_rate": 0.002,
+        "origin": "bacterial",
+        "description": "Multi-drug resistant Yersinia pestis causing pneumonic plague"
+    },
+    {
+        "name": "engineered_smallpox",
+        "pathogen_type": "dna_virus",
+        "transmission_rate": 4.5,
+        "mortality_rate": 0.7,
+        "incubation_period_days": 12,
+        "infectious_period_days": 21,
+        "mutation_rate": 0.0005,
+        "origin": "engineered",
+        "description": "Bioengineered smallpox variant with enhanced virulence"
+    },
+    {
+        "name": "fungal_pathogen",
+        "pathogen_type": "fungus",
+        "transmission_rate": 1.5,
+        "mortality_rate": 0.4,
+        "incubation_period_days": 30,
+        "infectious_period_days": 60,
+        "mutation_rate": 0.001,
+        "origin": "environmental",
+        "description": "Novel fungal pathogen affecting respiratory and nervous systems"
+    },
+    {
+        "name": "prion_disease",
+        "pathogen_type": "prion",
+        "transmission_rate": 0.8,
+        "mortality_rate": 1.0,
+        "incubation_period_days": 365,
+        "infectious_period_days": 730,
+        "mutation_rate": 0.0001,
+        "origin": "protein_misfolding",
+        "description": "Transmissible spongiform encephalopathy with 100% fatality"
+    }
+]

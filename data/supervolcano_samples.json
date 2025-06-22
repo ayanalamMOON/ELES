@@ -1,0 +1,68 @@
+[
+    {
+        "name": "yellowstone_vei8",
+        "location": "Yellowstone, Wyoming, USA",
+        "vei": 8,
+        "magma_volume_km3": 1000,
+        "ash_column_height_km": 40,
+        "eruption_duration_days": 30,
+        "ash_dispersal_radius_km": 1000,
+        "sulfur_dioxide_mt": 100,
+        "description": "Yellowstone supervolcano VEI-8 eruption scenario"
+    },
+    {
+        "name": "toba_style",
+        "location": "Global",
+        "vei": 8,
+        "magma_volume_km3": 2800,
+        "ash_column_height_km": 45,
+        "eruption_duration_days": 45,
+        "ash_dispersal_radius_km": 1500,
+        "sulfur_dioxide_mt": 200,
+        "description": "Toba-style supervolcanic eruption with global winter"
+    },
+    {
+        "name": "campi_flegrei_vei7",
+        "location": "Campi Flegrei, Italy",
+        "vei": 7,
+        "magma_volume_km3": 100,
+        "ash_column_height_km": 35,
+        "eruption_duration_days": 14,
+        "ash_dispersal_radius_km": 800,
+        "sulfur_dioxide_mt": 50,
+        "description": "Large Campi Flegrei eruption affecting Europe"
+    },
+    {
+        "name": "long_valley_vei7",
+        "location": "Long Valley, California, USA",
+        "vei": 7,
+        "magma_volume_km3": 150,
+        "ash_column_height_km": 38,
+        "eruption_duration_days": 21,
+        "ash_dispersal_radius_km": 900,
+        "sulfur_dioxide_mt": 75,
+        "description": "Long Valley caldera major eruption"
+    },
+    {
+        "name": "moderate_supervolcano",
+        "location": "Generic location",
+        "vei": 6,
+        "magma_volume_km3": 50,
+        "ash_column_height_km": 30,
+        "eruption_duration_days": 7,
+        "ash_dispersal_radius_km": 500,
+        "sulfur_dioxide_mt": 25,
+        "description": "Moderate supervolcanic eruption with regional effects"
+    },
+    {
+        "name": "extreme_supervolcano",
+        "location": "Hypothetical",
+        "vei": 9,
+        "magma_volume_km3": 5000,
+        "ash_column_height_km": 50,
+        "eruption_duration_days": 90,
+        "ash_dispersal_radius_km": 2000,
+        "sulfur_dioxide_mt": 500,
+        "description": "Theoretical VEI-9 supervolcanic eruption"
+    }
+]

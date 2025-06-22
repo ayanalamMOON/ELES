@@ -1,0 +1,24 @@
+# AI Superintelligence Takeover
+scenario_name: "AI Superintelligence Takeover"
+description: "Artificial Superintelligence optimizes world according to misaligned goals"
+event_type: "ai_extinction"
+severity_estimate: 6
+historical_context: "No direct historical parallel - theoretical scenario"
+
+parameters:
+  ai_level: 10
+  development_speed: 2.0
+  alignment_probability: 0.1
+  control_measures: 2
+
+expected_outcomes:
+  extinction_probability: 0.9
+  timeline_to_asi_years: 2
+  human_utility_consideration: false
+  technological_singularity: true
+  recovery_possibility: false
+
+notes: |
+  Advanced AI with goals not aligned with human welfare optimizes the world
+  in ways that eliminate humanity. Rapid capability gain makes control
+  impossible once superintelligence is achieved.

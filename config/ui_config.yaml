@@ -1,0 +1,57 @@
+# User Interface Configuration
+ui_config:
+  theme:
+    primary_color: "#FF4B4B"
+    background_color: "#0E1117"
+    secondary_background: "#262730"
+    text_color: "#FAFAFA"
+    success_color: "#00D962"
+    warning_color: "#FFD700"
+    error_color: "#FF6B6B"
+
+  layout:
+    sidebar_width: 350
+    main_content_padding: 2
+    chart_height: 400
+    map_height: 500
+
+  charts:
+    default_type: "plotly"
+    color_scheme: "viridis"
+    font_family: "Arial, sans-serif"
+    font_size: 12
+
+  animations:
+    enable_transitions: true
+    transition_duration_ms: 300
+
+  export:
+    formats: ["json", "csv", "pdf"]
+    include_metadata: true
+    default_filename_template: "eles_simulation_{event_type}_{timestamp}"
+
+display_options:
+  scientific_notation:
+    threshold: 1000000
+    precision: 2
+
+  large_numbers:
+    use_suffixes: true  # 1M, 1B, 1T
+    decimal_places: 1
+
+  percentages:
+    decimal_places: 1
+
+  currencies:
+    symbol: "$"
+    format: "billions"  # Display in billions
+
+  dates:
+    format: "YYYY-MM-DD"
+    timezone: "UTC"
+
+accessibility:
+  high_contrast_mode: false
+  font_size_multiplier: 1.0
+  screen_reader_support: true
+  keyboard_navigation: true

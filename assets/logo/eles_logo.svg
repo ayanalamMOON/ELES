@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#1a1a2e" stroke="#16213e" stroke-width="3"/>
+
+  <!-- Earth silhouette -->
+  <circle cx="100" cy="100" r="70" fill="#0f3460" stroke="#533a7b" stroke-width="2"/>
+
+  <!-- Continents (simplified) -->
+  <path d="M60 80 Q80 70 100 80 Q120 70 140 80 Q120 100 100 110 Q80 100 60 80" fill="#16537e"/>
+  <path d="M70 120 Q90 110 110 120 Q130 110 150 120 Q130 140 110 150 Q90 140 70 120" fill="#16537e"/>
+
+  <!-- Asteroid impact symbol -->
+  <circle cx="130" cy="70" r="8" fill="#ff6b6b" stroke="#ff5252" stroke-width="2"/>
+  <path d="M130 70 L140 50 M130 70 L150 60 M130 70 L145 75" stroke="#ff9800" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Volcanic eruption symbol -->
+  <polygon points="80,130 85,120 90,130" fill="#d32f2f"/>
+  <path d="M85 120 Q82 115 85 110 Q88 115 85 120" fill="#ff5722" stroke="#ff3d00" stroke-width="1"/>
+
+  <!-- Radiation waves -->
+  <path d="M40 100 Q50 90 60 100 Q50 110 40 100" fill="none" stroke="#ffc107" stroke-width="2" opacity="0.7"/>
+  <path d="M140 100 Q150 90 160 100 Q150 110 140 100" fill="none" stroke="#ffc107" stroke-width="2" opacity="0.7"/>
+
+  <!-- DNA/virus symbol -->
+  <path d="M100 40 Q110 45 100 50 Q90 45 100 40" fill="#e91e63" stroke="#c2185b" stroke-width="1"/>
+  <circle cx="100" cy="45" r="2" fill="#fff"/>
+
+  <!-- AI circuit pattern -->
+  <rect x="85" y="155" width="30" height="15" rx="3" fill="#9c27b0" stroke="#7b1fa2" stroke-width="1"/>
+  <circle cx="90" cy="162" r="2" fill="#e1bee7"/>
+  <circle cx="110" cy="162" r="2" fill="#e1bee7"/>
+  <path d="M92 162 L108 162" stroke="#e1bee7" stroke-width="1"/>
+
+  <!-- Warning triangle -->
+  <polygon points="100,25 110,40 90,40" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+  <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff">!</text>
+
+  <!-- ELES text -->
+  <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#fff">E.L.E.S.</text>
+</svg>

@@ -1,0 +1,109 @@
+# Nuclear War Scenario Configurations
+
+scenarios:
+  - name: "limited_exchange"
+    description: "Limited tactical nuclear exchange"
+    category: "nuclear_war"
+    severity_level: 3
+    enabled: true
+    data_source: "nuclear_samples.json"
+    sample_key: "limited_tactical_exchange"
+
+    parameters:
+      warheads_detonated: 20
+      total_yield_mt: 2
+      conflict_type: "tactical_nuclear"
+      geographic_scope: "regional"
+
+    effects:
+      fallout_area_km2: 5000
+      nuclear_winter_duration_years: 0.5
+      emp_coverage: "battlefield"
+      economic_disruption: "regional"
+      escalation_risk: 0.3
+
+  - name: "regional_war"
+    description: "Regional nuclear war between smaller powers"
+    category: "nuclear_war"
+    severity_level: 4
+    enabled: true
+    data_source: "nuclear_samples.json"
+    sample_key: "regional_nuclear_war"
+
+    parameters:
+      warheads_detonated: 100
+      total_yield_mt: 50
+      conflict_type: "regional_exchange"
+      geographic_scope: "continental"
+
+    effects:
+      fallout_area_km2: 50000
+      nuclear_winter_duration_years: 2
+      emp_coverage: "regional"
+      economic_disruption: "global"
+      escalation_risk: 0.5
+
+  - name: "global_nuclear_war"
+    description: "Full-scale global nuclear exchange"
+    category: "nuclear_war"
+    severity_level: 6
+    enabled: true
+    data_source: "nuclear_samples.json"
+    sample_key: "global_thermonuclear_war"
+
+    parameters:
+      warheads_detonated: 4000
+      total_yield_mt: 1500
+      conflict_type: "full_scale_exchange"
+      geographic_scope: "global"
+
+    effects:
+      fallout_area_km2: 500000
+      nuclear_winter_duration_years: 10
+      emp_coverage: "global"
+      economic_disruption: "total"
+      civilization_collapse_risk: 0.9
+
+  - name: "terrorist_nuclear"
+    description: "Nuclear terrorism scenario"
+    category: "nuclear_war"
+    severity_level: 3
+    enabled: true
+    data_source: "nuclear_samples.json"
+    sample_key: "terrorist_dirty_bomb"
+
+    parameters:
+      warheads_detonated: 5
+      total_yield_mt: 0.001
+      conflict_type: "radiological_weapon"
+      geographic_scope: "urban"
+
+    effects:
+      fallout_area_km2: 100
+      nuclear_winter_duration_years: 0
+      emp_coverage: "local"
+      economic_disruption: "moderate"
+      escalation_risk: 0.7
+      panic_factor: "extreme"
+
+  - name: "accidental_war"
+    description: "Accidental nuclear war from system failure"
+    category: "nuclear_war"
+    severity_level: 5
+    enabled: true
+    data_source: "nuclear_samples.json"
+    sample_key: "nuclear_accident_cascade"
+
+    parameters:
+      warheads_detonated: 500
+      total_yield_mt: 200
+      conflict_type: "accidental_war"
+      geographic_scope: "multi_continental"
+
+    effects:
+      fallout_area_km2: 100000
+      nuclear_winter_duration_years: 3
+      emp_coverage: "continental"
+      economic_disruption: "severe"
+      escalation_risk: 1.0
+      command_control_breakdown: true

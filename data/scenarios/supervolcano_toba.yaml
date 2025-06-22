@@ -1,0 +1,25 @@
+# Toba Supervolcano Eruption
+scenario_name: "Toba-like VEI-8 Eruption"
+description: "Supervolcanic eruption similar to Toba 74,000 years ago"
+event_type: "supervolcano"
+severity_estimate: 6
+historical_context: "Toba eruption may have reduced human population to 3,000-10,000"
+
+parameters:
+  name: "Toba"
+  vei: 8
+  magma_volume_km3: 2800
+
+expected_outcomes:
+  ash_volume_km3: 5600
+  ash_cloud_height_km: 50
+  temperature_drop_c: 10
+  cooling_duration_years: 8
+  pyroclastic_flow_range_km: 300
+  immediate_casualties: 200000
+  global_population_bottleneck: true
+
+notes: |
+  The Toba eruption created a severe volcanic winter and may have caused
+  a population bottleneck in early humans. A similar event today could
+  threaten human civilization.

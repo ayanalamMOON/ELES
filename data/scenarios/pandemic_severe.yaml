@@ -1,0 +1,12 @@
+scenario_name: "Catastrophic Pandemic"
+description: "Highly contagious and lethal pandemic scenario"
+event_type: "pandemic"
+parameters:
+  r0: 5.0
+  mortality_rate: 0.15
+
+metadata:
+  inspiration: "Combination of high transmissibility and lethality"
+  comparison: "More lethal than Spanish Flu, more contagious than MERS"
+  timeline: "Global spread within 6 months"
+  notes: "Could lead to civilization collapse"

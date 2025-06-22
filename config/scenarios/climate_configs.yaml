@@ -1,0 +1,90 @@
+# Climate Collapse Scenario Configurations
+
+scenarios:
+  - name: "moderate_warming"
+    description: "Moderate climate change (2.5°C warming)"
+    category: "climate"
+    severity_level: 2
+    enabled: true
+    data_source: "climate_samples.json"
+    sample_key: "moderate_warming"
+
+    parameters:
+      temperature_increase_c: 2.5
+      co2_ppm: 500
+      sea_level_rise_m: 0.8
+      timeframe_years: 100
+
+    effects:
+      ice_sheet_collapse: false
+      ocean_acidification_ph: 7.8
+      extreme_weather_increase: 2.0
+      agricultural_impact: "moderate"
+      water_stress_regions: ["africa", "middle_east"]
+
+  - name: "dangerous_warming"
+    description: "Dangerous climate change (4.5°C warming)"
+    category: "climate"
+    severity_level: 4
+    enabled: true
+    data_source: "climate_samples.json"
+    sample_key: "rapid_warming_rcp85"
+
+    parameters:
+      temperature_increase_c: 4.5
+      co2_ppm: 1200
+      sea_level_rise_m: 3.0
+      timeframe_years: 80
+
+    effects:
+      ice_sheet_collapse: true
+      ocean_acidification_ph: 7.4
+      extreme_weather_increase: 5.0
+      agricultural_impact: "severe"
+      water_stress_regions: ["global"]
+      coastal_flooding: true
+
+  - name: "runaway_greenhouse"
+    description: "Runaway greenhouse effect (8°C warming)"
+    category: "climate"
+    severity_level: 6
+    enabled: true
+    data_source: "climate_samples.json"
+    sample_key: "runaway_greenhouse"
+
+    parameters:
+      temperature_increase_c: 8.0
+      co2_ppm: 2000
+      sea_level_rise_m: 10.0
+      timeframe_years: 120
+
+    effects:
+      ice_sheet_collapse: true
+      ocean_acidification_ph: 7.0
+      extreme_weather_increase: 10.0
+      agricultural_impact: "collapse"
+      water_stress_regions: ["global"]
+      coastal_flooding: true
+      wet_bulb_exceed: true
+
+  - name: "methane_bomb"
+    description: "Methane clathrate gun scenario"
+    category: "climate"
+    severity_level: 5
+    enabled: true
+    data_source: "climate_samples.json"
+    sample_key: "methane_clathrate_bomb"
+
+    parameters:
+      temperature_increase_c: 6.0
+      co2_ppm: 800
+      methane_ppb: 10000
+      timeframe_years: 50
+
+    effects:
+      ice_sheet_collapse: true
+      ocean_acidification_ph: 7.2
+      extreme_weather_increase: 8.0
+      agricultural_impact: "severe"
+      permafrost_feedback: true
+      arctic_ice_loss: true

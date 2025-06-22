@@ -1,0 +1,29 @@
+# Application settings
+app_name: "E.L.E.S."
+version: "0.1.0"
+debug: false
+
+# Simulation settings
+simulation:
+  default_scenario_path: "data/scenarios"
+  max_iterations: 1000
+  precision: 0.001
+
+# Data paths
+data:
+  extinction_events: "data/extinction_events.csv"
+  asteroid_samples: "data/asteroid_samples.json"
+  geological_data: "data/geological_data.json"
+  scenarios: "data/scenarios"
+
+# UI settings
+ui:
+  theme: "dark"
+  default_chart_type: "bar"
+  show_advanced_options: true
+
+# Export settings
+export:
+  default_format: "json"
+  include_metadata: true
+  compress_output: false

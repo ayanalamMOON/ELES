@@ -1,0 +1,107 @@
+# Cosmic Event Scenario Configurations
+
+scenarios:
+  - name: "solar_storm"
+    description: "Severe solar storm (Carrington-level)"
+    category: "cosmic"
+    severity_level: 3
+    enabled: true
+    data_source: "cosmic_samples.json"
+    sample_key: "solar_storm_cascade"
+
+    parameters:
+      event_type: "coronal_mass_ejection"
+      energy_ergs: 1e34
+      duration_hours: 72
+      magnetic_field_strength: "extreme"
+
+    effects:
+      emp_strength: "severe"
+      satellite_damage: "major"
+      power_grid_damage: "continental"
+      communication_disruption: "global"
+      gps_disruption: true
+
+  - name: "solar_superflare"
+    description: "Extreme solar superflare"
+    category: "cosmic"
+    severity_level: 4
+    enabled: true
+    data_source: "cosmic_samples.json"
+    sample_key: "solar_superflare"
+
+    parameters:
+      event_type: "solar_flare"
+      energy_ergs: 1e35
+      duration_hours: 24
+      magnetic_field_strength: "unprecedented"
+
+    effects:
+      emp_strength: "extreme"
+      satellite_damage: "total"
+      power_grid_damage: "global"
+      radiation_exposure: "dangerous"
+      technology_setback_years: 10
+
+  - name: "magnetic_reversal"
+    description: "Rapid magnetic pole reversal"
+    category: "cosmic"
+    severity_level: 4
+    enabled: true
+    data_source: "cosmic_samples.json"
+    sample_key: "magnetic_pole_reversal"
+
+    parameters:
+      event_type: "geomagnetic_reversal"
+      duration_hours: 87600
+      field_strength_reduction: 0.9
+      reversal_speed: "rapid"
+
+    effects:
+      radiation_exposure: "extreme"
+      satellite_damage: "progressive"
+      navigation_systems: "unreliable"
+      animal_migration: "disrupted"
+      duration_years: 10
+
+  - name: "nearby_supernova"
+    description: "Supernova within 50 light-years"
+    category: "cosmic"
+    severity_level: 5
+    enabled: true
+    data_source: "cosmic_samples.json"
+    sample_key: "nearby_supernova"
+
+    parameters:
+      event_type: "stellar_explosion"
+      distance_ly: 50
+      energy_ergs: 1e44
+      duration_hours: 8760
+
+    effects:
+      radiation_exposure: "lethal"
+      ozone_depletion_percent: 60
+      climate_cooling: true
+      mass_extinction_risk: 0.8
+      duration_years: 100
+
+  - name: "false_vacuum_decay"
+    description: "Vacuum metastability event"
+    category: "cosmic"
+    severity_level: 6
+    enabled: false
+    data_source: "cosmic_samples.json"
+    sample_key: "false_vacuum_decay"
+
+    parameters:
+      event_type: "quantum_catastrophe"
+      propagation_speed: "light_speed"
+      physics_alteration: "fundamental"
+      detectability: "zero"
+
+    effects:
+      reality_alteration: true
+      physics_breakdown: true
+      instantaneous_effect: true
+      survival_probability: 0.0
+      universe_destruction: true

@@ -1,0 +1,62 @@
+{
+    "supervolcanoes": [
+        {
+            "name": "Yellowstone",
+            "location": "Wyoming, USA",
+            "last_eruption": -640000,
+            "vei": 8,
+            "magma_chamber_volume_km3": 15000,
+            "eruption_probability_per_year": 0.00001,
+            "threat_level": "extreme"
+        },
+        {
+            "name": "Toba",
+            "location": "Sumatra, Indonesia",
+            "last_eruption": -74000,
+            "vei": 8,
+            "magma_chamber_volume_km3": 2800,
+            "eruption_probability_per_year": 0.000001,
+            "threat_level": "extreme"
+        },
+        {
+            "name": "Campi Flegrei",
+            "location": "Naples, Italy",
+            "last_eruption": -39000,
+            "vei": 7,
+            "magma_chamber_volume_km3": 500,
+            "eruption_probability_per_year": 0.0001,
+            "threat_level": "high"
+        },
+        {
+            "name": "Long Valley",
+            "location": "California, USA",
+            "last_eruption": -760000,
+            "vei": 7,
+            "magma_chamber_volume_km3": 600,
+            "eruption_probability_per_year": 0.00001,
+            "threat_level": "moderate"
+        },
+        {
+            "name": "Valles Caldera",
+            "location": "New Mexico, USA",
+            "last_eruption": -50000,
+            "vei": 6,
+            "magma_chamber_volume_km3": 100,
+            "eruption_probability_per_year": 0.0001,
+            "threat_level": "moderate"
+        }
+    ],
+    "geological_risks": {
+        "supervolcanic_winter_threshold_vei": 7,
+        "global_cooling_duration_years": {
+            "vei_6": 1,
+            "vei_7": 3,
+            "vei_8": 6
+        },
+        "ash_dispersal_models": [
+            "advection",
+            "sedimentation",
+            "stratospheric_transport"
+        ]
+    }
+}

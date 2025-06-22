@@ -1,0 +1,90 @@
+# Historical Extinction Events Database
+historical_events:
+  - event_id: 1
+    name: "Chicxulub Impact"
+    type: "asteroid"
+    date_mya: 66
+    severity: 6
+    description: "Asteroid impact that caused Cretaceous-Paleogene extinction"
+    parameters:
+      diameter_km: 10
+      energy_j: 1e23
+    outcomes:
+      species_extinction_percent: 75
+      duration_years: 1000000
+
+  - event_id: 2
+    name: "Permian-Triassic Extinction"
+    type: "multiple"
+    date_mya: 252
+    severity: 6
+    description: "The Great Dying - largest extinction in Earth's history"
+    parameters:
+      cause: "volcanism_climate"
+    outcomes:
+      species_extinction_percent: 96
+      duration_years: 60000
+
+  - event_id: 3
+    name: "Toba Supervolcano"
+    type: "supervolcano"
+    date_mya: 0.074
+    severity: 5
+    description: "Supervolcanic eruption that may have caused human population bottleneck"
+    parameters:
+      vei: 8
+      magma_volume_km3: 2800
+    outcomes:
+      human_population_bottleneck: true
+      temperature_drop_c: 10
+
+  - event_id: 4
+    name: "Late Ordovician Extinction"
+    type: "gamma_ray_burst"
+    date_mya: 450
+    severity: 5
+    description: "May have been caused by nearby gamma-ray burst"
+    parameters:
+      distance_ly: 6000
+    outcomes:
+      species_extinction_percent: 60
+      ozone_depletion: true
+
+  - event_id: 5
+    name: "Black Death"
+    type: "pandemic"
+    date_year: 1347
+    severity: 4
+    description: "Bubonic plague pandemic in medieval Europe"
+    parameters:
+      r0: 1.5
+      mortality_rate: 0.5
+    outcomes:
+      population_loss_europe: 0.6
+      social_transformation: true
+
+  - event_id: 6
+    name: "Spanish Flu"
+    type: "pandemic"
+    date_year: 1918
+    severity: 4
+    description: "H1N1 influenza pandemic"
+    parameters:
+      r0: 2.0
+      mortality_rate: 0.03
+    outcomes:
+      global_deaths: 50000000
+      economic_impact: "severe"
+
+  - event_id: 7
+    name: "Tunguska Event"
+    type: "asteroid"
+    date_year: 1908
+    severity: 2
+    description: "Atmospheric explosion over Siberia"
+    parameters:
+      diameter_km: 0.06
+      energy_j: 1e16
+    outcomes:
+      trees_flattened_km2: 2000
+      casualties: 0

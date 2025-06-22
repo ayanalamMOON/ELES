@@ -1,0 +1,11 @@
+event_id,event_name,year,description,severity,type,casualties,recovery_time_years
+1,Chicxulub Impact,-66000000,"Asteroid impact that caused dinosaur extinction",6,asteroid,unknown,1000000
+2,Permian-Triassic Extinction,-252000000,"The Great Dying - largest extinction event",6,volcanism,unknown,10000000
+3,Toba Supervolcano,-74000,"Supervolcanic eruption causing population bottleneck",5,supervolcano,unknown,1000
+4,Late Ordovician Extinction,-450000000,"Possible gamma-ray burst extinction",5,gamma_ray_burst,unknown,5000000
+5,Triassic-Jurassic Extinction,-201000000,"Volcanic extinction event",5,volcanism,unknown,2000000
+6,Black Death,1347,"Bubonic plague pandemic in Europe",4,pandemic,75000000,200
+7,Spanish Flu,1918,"H1N1 influenza pandemic",4,pandemic,50000000,5
+8,Tunguska Event,1908,"Atmospheric explosion over Siberia",2,asteroid,0,1
+9,Mount Tambora,1815,"Volcanic eruption causing year without summer",3,volcano,71000,3
+10,COVID-19,2019,"SARS-CoV-2 coronavirus pandemic",2,pandemic,7000000,5
