@@ -355,14 +355,12 @@ def demo_scientific_visualizations():
         return
 
     print("\n🔬 Demonstrating Scientific Visualizations")
-    print("=" * 50)
-
-    # Demo 1: Phase Space Plot
+    print("=" * 50)    # Demo 1: Phase Space Plot
     print("1. Creating phase space plot...")
     try:
         # Create sample data for phase space
         sample_data = {}  # Function will generate sample data
-        fig1 = plot_phase_space(sample_data, 'x', 'y')
+        fig1 = plot_phase_space(sample_data, "x", "y")
         print("   ✅ Phase space plot created")
         plt.close(fig1)
     except Exception as e:
