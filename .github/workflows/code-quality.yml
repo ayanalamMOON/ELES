@@ -60,10 +60,8 @@ jobs:
     - name: Security check with bandit
       run: |
         pip install bandit
-        bandit -r eles_core/ visualizations/ -f json -o bandit-report.json || true
-
-    - name: Upload bandit report
-      uses: actions/upload-artifact@v3
+        bandit -r eles_core/ visualizations/ -f json -o bandit-report.json || true    - name: Upload bandit report
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: bandit-report

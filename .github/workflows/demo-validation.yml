@@ -68,22 +68,21 @@ jobs:
             run_advanced_demo
         )
 
-        try:
-            print('✓ Running basic demo...')
+        try:            print('✓ Running basic demo...')
             run_basic_demo()
-
+            
             print('✓ Running scientific demo...')
             run_scientific_demo()
-
+            
             print('✓ Running comparative demo...')
             run_comparative_demo()
-
+            
             print('✓ Running advanced demo...')
             run_advanced_demo()
-
-            print('🎉 All demos completed successfully!')
+            
+            print('All demos completed successfully!')
         except Exception as e:
-            print(f'❌ Demo validation failed: {e}')
+            print(f'Demo validation failed: {e}')
             raise
         "
 
@@ -107,14 +106,13 @@ jobs:
             'visualizations.export'
         ]
 
-        for module in modules_to_test:
-            try:
+        for module in modules_to_test:            try:
                 __import__(module)
-                print(f'✓ {module} imports successfully')
+                print(f'Module {module} imports successfully')
             except ImportError as e:
-                print(f'⚠️  {module} import failed: {e}')
+                print(f'Module {module} import failed: {e}')
             except Exception as e:
-                print(f'⚠️  {module} error: {e}')
+                print(f'Module {module} error: {e}')
 
         print('Module import validation completed.')
         "
@@ -123,13 +121,12 @@ jobs:
       run: |
         export PYTHONPATH="${PYTHONPATH}:$(pwd)"
         python -c "
-        print('Testing core engine...')
-        try:
+        print('Testing core engine...')        try:
             from eles_core.engine import SimulationEngine
             engine = SimulationEngine()
-            print('✓ Core engine initialization successful')
+            print('Core engine initialization successful')
         except Exception as e:
-            print(f'⚠️  Core engine test: {e}')
+            print(f'Core engine test: {e}')
         "
 
     - name: Generate demo validation report
@@ -141,10 +138,8 @@ jobs:
         echo "**Branch:** ${{ github.ref_name }}" >> demo-validation-report.md
         echo "" >> demo-validation-report.md
         echo "## Status" >> demo-validation-report.md
-        echo "✅ All demos and tests completed successfully" >> demo-validation-report.md
-
-    - name: Upload validation artifacts
-      uses: actions/upload-artifact@v3
+        echo "All demos and tests completed successfully" >> demo-validation-report.md    - name: Upload validation artifacts
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: demo-validation-results

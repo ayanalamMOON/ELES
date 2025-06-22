@@ -93,10 +93,8 @@ jobs:
         from visualizations.networks import test_network_visualization
         test_network_visualization()
         print('✓ Network visualization test passed')
-        "
-
-    - name: Upload visualization artifacts
-      uses: actions/upload-artifact@v3
+        "    - name: Upload visualization artifacts
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: visualization-outputs

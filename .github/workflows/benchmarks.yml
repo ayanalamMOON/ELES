@@ -112,10 +112,8 @@ jobs:
         echo "- OS: $(uname -a)" >> benchmark-report.md
         echo "- Python: $(python --version)" >> benchmark-report.md
         echo "- Memory: $(free -h | grep Mem | awk '{print $2}')" >> benchmark-report.md
-        echo "- CPU: $(nproc) cores" >> benchmark-report.md
-
-    - name: Upload benchmark results
-      uses: actions/upload-artifact@v3
+        echo "- CPU: $(nproc) cores" >> benchmark-report.md    - name: Upload benchmark results
+      uses: actions/upload-artifact@v4
       with:
         name: benchmark-results
         path: |
