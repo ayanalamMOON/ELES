@@ -732,14 +732,14 @@ def display_summary_tab(result):
 
 def display_visualizations_tab(result, event_type):
     """Display visualizations."""
-    
+
     # Add visualization type selector
     viz_type = st.selectbox(
         "🎯 Visualization Type",
         ["2D Charts", "3D Interactive", "Advanced 3D Simulation"],
         help="Choose the type of visualization to display"
     )
-    
+
     if viz_type == "2D Charts":
         # Original 2D visualizations
         if event_type == "asteroid":
@@ -756,15 +756,15 @@ def display_visualizations_tab(result, event_type):
             display_ai_extinction_visualizations(result)
         else:
             st.info("Visualizations not yet implemented for this event type.")
-    
+
     elif viz_type == "3D Interactive" and HAS_3D_VISUALIZATIONS:
         # 3D interactive visualizations
         display_3d_visualizations(result, event_type)
-    
+
     elif viz_type == "Advanced 3D Simulation" and HAS_3D_VISUALIZATIONS:
         # Advanced 3D simulations
         display_advanced_3d_simulations(result, event_type)
-    
+
     else:
         if not HAS_3D_VISUALIZATIONS:
             st.warning("⚠️ 3D visualizations are not available. The required 3D libraries may not be installed.")
@@ -1087,7 +1087,7 @@ def display_event_info(event_type):
 def display_3d_visualizations(result, event_type):
     """Display 3D interactive visualizations."""
     st.subheader("🎯 3D Interactive Visualizations")
-    
+
     try:
         if event_type == "asteroid":
             display_asteroid_3d_visualization(result)
@@ -1117,7 +1117,7 @@ def display_advanced_3d_simulations(result, event_type):
 def display_asteroid_3d_visualization(result):
     """Display 3D asteroid impact visualization."""
     sim_data = result.simulation_data
-    
+
     impact_data = {
         'crater_diameter_km': sim_data.get('crater_diameter_km', 10),
         'impact_angle': sim_data.get('impact_angle', 45),
@@ -1125,20 +1125,20 @@ def display_asteroid_3d_visualization(result):
         'impact_velocity_km_s': sim_data.get('velocity_km_s', 20),
         'impact_energy_joules': sim_data.get('impact_energy', 1e20)
     }
-    
+
     st.write("**🌍 3D Impact Crater and Trajectory**")
     st.info("Use your mouse to rotate, zoom, and explore the 3D impact crater!")
-    
+
     fig = render_asteroid_impact(impact_data)
     st.plotly_chart(fig, use_container_width=True)
-    
+
     # Additional explosion visualization
     explosion_data = {
         'max_blast_radius_km': sim_data.get('blast_radius_severe_km', 50),
         'explosion_energy_joules': sim_data.get('impact_energy', 1e20),
         'time_steps': 20
     }
-    
+
     st.write("**💥 3D Explosion Propagation**")
     fig_explosion = render_explosion_sphere(explosion_data)
     st.plotly_chart(fig_explosion, use_container_width=True)
@@ -1147,17 +1147,17 @@ def display_asteroid_3d_visualization(result):
 def display_climate_collapse_3d_visualization(result):
     """Display 3D climate collapse visualization."""
     sim_data = result.simulation_data
-    
+
     climate_data = {
         'temperature_change_c': sim_data.get('temperature_change_c', -5),
         'sea_level_change_m': sim_data.get('sea_level_change_m', 2),
         'precipitation_change_percent': sim_data.get('precipitation_change_percent', -30),
         'duration_years': sim_data.get('duration_years', 100)
     }
-    
+
     st.write("**🌡️ 3D Climate System Visualization**")
     st.info("Explore the global climate effects in 3D!")
-    
+
     fig = render_climate_collapse_3d(climate_data)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -1165,17 +1165,17 @@ def display_climate_collapse_3d_visualization(result):
 def display_gamma_ray_burst_3d_visualization(result):
     """Display 3D gamma-ray burst visualization."""
     sim_data = result.simulation_data
-    
+
     grb_data = {
         'energy_joules': sim_data.get('energy_joules', 1e44),
         'distance_light_years': sim_data.get('distance_light_years', 6000),
         'ozone_depletion_percent': sim_data.get('ozone_depletion_percent', 75),
         'radiation_duration_seconds': sim_data.get('duration_seconds', 10)
     }
-    
+
     st.write("**💫 3D Gamma-Ray Burst Radiation Pattern**")
     st.info("Visualize the intense radiation beam and atmospheric effects!")
-    
+
     fig = render_gamma_ray_burst_3d(grb_data)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -1183,17 +1183,17 @@ def display_gamma_ray_burst_3d_visualization(result):
 def display_ai_extinction_3d_visualization(result):
     """Display 3D AI extinction visualization."""
     sim_data = result.simulation_data
-    
+
     ai_data = {
         'development_speed': sim_data.get('development_speed', 0.8),
         'control_probability': sim_data.get('control_probability', 0.3),
         'capability_growth_rate': sim_data.get('capability_growth_rate', 0.9),
         'timeline_years': sim_data.get('timeline_years', 10)
     }
-    
+
     st.write("**🤖 3D AI Development and Risk Propagation**")
     st.info("Explore AI development trajectories and risk propagation in 3D space!")
-    
+
     fig = render_ai_extinction_3d(ai_data)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -1201,7 +1201,7 @@ def display_ai_extinction_3d_visualization(result):
 def display_pandemic_3d_visualization(result):
     """Display 3D pandemic spread visualization."""
     sim_data = result.simulation_data
-    
+
     # Create geographic model data for 3D visualization
     geographic_data = {
         'affected_regions': ['North America', 'Europe', 'Asia', 'Africa', 'South America', 'Oceania'],
@@ -1209,10 +1209,10 @@ def display_pandemic_3d_visualization(result):
         'mortality_rates': [0.1, 0.08, 0.12, 0.15, 0.11, 0.06],
         'recovery_times': [365, 400, 300, 500, 450, 350]  # days
     }
-    
+
     st.write("**🦠 3D Global Pandemic Spread**")
     st.info("Explore global pandemic spread patterns in 3D!")
-    
+
     fig = render_geographic_model(geographic_data)
     st.plotly_chart(fig, use_container_width=True)
 
@@ -1220,17 +1220,17 @@ def display_pandemic_3d_visualization(result):
 def display_supervolcano_3d_visualization(result):
     """Display 3D supervolcano visualization."""
     sim_data = result.simulation_data
-    
+
     explosion_data = {
         'max_blast_radius_km': sim_data.get('ash_fallout_radius_km', 1000),
         'explosion_energy_joules': sim_data.get('eruption_energy', 1e22),
         'time_steps': 30,
         'ash_column_height_km': sim_data.get('ash_column_height_km', 40)
     }
-    
+
     st.write("**🌋 3D Volcanic Explosion and Ash Dispersal**")
     st.info("Explore the massive volcanic explosion and ash cloud propagation!")
-    
+
     fig = render_explosion_sphere(explosion_data)
     st.plotly_chart(fig, use_container_width=True)
 
