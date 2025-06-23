@@ -10,6 +10,12 @@
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://python.org)
 [![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/yourusername/ELES/releases)
 
+## 🚀 **[Try E.L.E.S. Online →](https://extinction.streamlit.app)**
+
+**Live Demo Available:** Experience the full power of E.L.E.S. directly in your browser at **[extinction.streamlit.app](https://extinction.streamlit.app)** - no installation required!
+
+---
+
 E.L.E.S. is a comprehensive, scientifically-grounded simulation framework for modeling and analyzing various extinction-level events. From asteroid impacts to AI takeover scenarios, this platform provides researchers, educators, and policymakers with powerful tools to understand, assess, and prepare for existential risks to human civilization.
 
 ## 📋 Table of Contents
@@ -90,6 +96,23 @@ The Extinction-Level Event Simulator addresses one of humanity's most critical c
 - Export formats: CSV, JSON, PDF reports
 
 ## 🚀 Quick Start
+
+### 🌐 **Option 1: Try Online (Recommended)**
+
+The fastest way to experience E.L.E.S. is through our **live web application**:
+
+**→ [Launch E.L.E.S. Online](https://extinction.streamlit.app)**
+
+✅ **No installation required**
+✅ **Full feature access**
+✅ **Works on any device**
+✅ **Always up-to-date**
+
+---
+
+### 💻 **Option 2: Local Installation**
+
+For advanced users, researchers, or offline usage:
 
 ### Prerequisites
 
