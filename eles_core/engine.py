@@ -81,9 +81,7 @@ class Engine:
         elif event_type == 'ai_extinction':
             event = event_class(
                 ai_level=parameters.get('ai_level', 5)
-            )
-
-        # Run simulation
+            )        # Run simulation
         simulation_result = event.simulate()
 
         # Create extinction result
@@ -96,7 +94,6 @@ class Engine:
 
     def _calculate_severity(self, event_type: str, simulation_data: Dict[str, Any]) -> int:
         """Calculate severity level based on simulation results."""
-        # Simple severity calculation - can be enhanced
         if event_type == 'asteroid':
             energy = simulation_data.get('impact_energy', 0)
             if energy > 1e23:
@@ -112,7 +109,82 @@ class Engine:
             else:
                 return 1  # Minimal
 
-        # Default severity for other event types
+        elif event_type == 'pandemic':
+            total_deaths = simulation_data.get('total_deaths', 0)
+            if total_deaths > 2e9:  # > 2 billion deaths
+                return 6  # Extinction level
+            elif total_deaths > 1e9:  # > 1 billion deaths
+                return 5  # Global catastrophe
+            elif total_deaths > 1e8:  # > 100 million deaths
+                return 4  # Continental
+            elif total_deaths > 1e7:  # > 10 million deaths
+                return 3  # Regional
+            elif total_deaths > 1e6:  # > 1 million deaths
+                return 2  # Local
+            else:
+                return 1  # Minimal
+
+        elif event_type == 'supervolcano':
+            vei = simulation_data.get('vei', 6)
+            if vei >= 8:
+                return 6  # Extinction level
+            elif vei >= 7:
+                return 5  # Global catastrophe
+            elif vei >= 6:
+                return 4  # Continental
+            elif vei >= 5:
+                return 3  # Regional
+            elif vei >= 4:
+                return 2  # Local
+            else:
+                return 1  # Minimal
+
+        elif event_type == 'climate_collapse':
+            temp_change = abs(simulation_data.get('temperature_change_c', 0))
+            if temp_change >= 15:
+                return 6  # Extinction level
+            elif temp_change >= 10:
+                return 5  # Global catastrophe
+            elif temp_change >= 7:
+                return 4  # Continental
+            elif temp_change >= 5:
+                return 3  # Regional
+            elif temp_change >= 3:
+                return 2  # Local
+            else:
+                return 1  # Minimal
+
+        elif event_type == 'gamma_ray_burst':
+            distance = simulation_data.get('distance_ly', 1000)
+            if distance <= 500:
+                return 6  # Extinction level
+            elif distance <= 1000:
+                return 5  # Global catastrophe
+            elif distance <= 2000:
+                return 4  # Continental
+            elif distance <= 3000:
+                return 3  # Regional
+            elif distance <= 5000:
+                return 2  # Local
+            else:
+                return 1  # Minimal
+
+        elif event_type == 'ai_extinction':
+            ai_level = simulation_data.get('ai_level', 5)
+            if ai_level >= 9:
+                return 6  # Extinction level
+            elif ai_level >= 8:
+                return 5  # Global catastrophe
+            elif ai_level >= 7:
+                return 4  # Continental
+            elif ai_level >= 6:
+                return 3  # Regional
+            elif ai_level >= 4:
+                return 2  # Local
+            else:
+                return 1  # Minimal
+
+        # Default severity for unknown event types
         return 3
 
     def run(self, scenario: str) -> Optional[ExtinctionResult]:

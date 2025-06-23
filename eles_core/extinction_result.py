@@ -28,38 +28,160 @@ class ExtinctionResult:
         self.simulation_data = simulation_data
         self.severity = severity
         self.impacted_area = impacted_area
-        self.global_effects = global_effects or {}
-
-        # Calculate derived metrics
+        self.global_effects = global_effects or {}        # Calculate derived metrics
         self._calculate_derived_metrics()
 
     def _calculate_derived_metrics(self):
         """Calculate additional metrics based on simulation data."""
-        # Calculate estimated casualties
+        world_population = 8e9
+
+        # Calculate estimated casualties and economic impact based on event type
         if self.event_type == 'asteroid':
-            # Rough estimate based on crater size and population density
-            crater_diameter = self.simulation_data.get('crater_diameter_km', 0)
-            self.estimated_casualties = int(crater_diameter * 1000000)  # Rough estimate
+            # Use data from simulation if available, otherwise estimate
+            if 'estimated_casualties' in self.simulation_data:
+                self.estimated_casualties = self.simulation_data['estimated_casualties']
+            else:
+                # Rough estimate based on crater size and population density
+                crater_diameter = self.simulation_data.get('crater_diameter_km', 0)
+                self.estimated_casualties = int(crater_diameter * 1000000)
 
             # Calculate economic impact (in billions USD)
-            energy = self.simulation_data.get('impact_energy', 0)
-            self.economic_impact = energy / 1e18  # Very rough scaling
+            if 'economic_impact_billion_usd' in self.simulation_data:
+                self.economic_impact = self.simulation_data['economic_impact_billion_usd']
+            else:
+                energy = self.simulation_data.get('impact_energy', 0)
+                self.economic_impact = energy / 1e18  # Very rough scaling
 
         elif self.event_type == 'pandemic':
-            r0 = self.simulation_data.get('r0', 1.0)
-            mortality = self.simulation_data.get('mortality_rate', 0.01)
-            world_population = 8e9
-
-            # Simple epidemic model
-            if r0 > 1:
-                infected_fraction = 1 - (1/r0)
-                self.estimated_casualties = int(world_population * infected_fraction * mortality)
+            # Use simulation data directly if available
+            if 'total_deaths' in self.simulation_data:
+                self.estimated_casualties = self.simulation_data['total_deaths']
             else:
-                self.estimated_casualties = 0
+                r0 = self.simulation_data.get('r0', 1.0)
+                mortality = self.simulation_data.get('mortality_rate', 0.01)
 
-            self.economic_impact = self.estimated_casualties * 0.01  # $10M per casualty rough estimate
+                # Simple epidemic model
+                if r0 > 1:
+                    infected_fraction = 1 - (1/r0)
+                    self.estimated_casualties = int(world_population * infected_fraction * mortality)
+                else:
+                    self.estimated_casualties = 0            # Economic impact based on casualties and disruption
+            if 'economic_impact_billion_usd' in self.simulation_data:
+                self.economic_impact = self.simulation_data['economic_impact_billion_usd']
+            else:
+                # More realistic economic impact: $1M per casualty + disruption costs
+                self.economic_impact = (self.estimated_casualties / 1000000) + (self.estimated_casualties * 0.001)
+
+        elif self.event_type == 'supervolcano':
+            vei = self.simulation_data.get('vei', 6)
+
+            # Estimate casualties based on VEI scale
+            if vei >= 8:
+                self.estimated_casualties = int(world_population * 0.75)  # 75% of world population
+            elif vei >= 7:
+                self.estimated_casualties = int(world_population * 0.25)  # 25% of world population
+            elif vei >= 6:
+                self.estimated_casualties = int(world_population * 0.05)  # 5% of world population
+            elif vei >= 5:
+                self.estimated_casualties = int(world_population * 0.01)  # 1% of world population
+            else:
+                self.estimated_casualties = int(world_population * 0.001)  # 0.1% of world population
+              # Economic impact based on global disruption (more realistic scaling)
+            if vei >= 8:
+                self.economic_impact = 50000  # $50 trillion for VEI 8
+            elif vei >= 7:
+                self.economic_impact = 20000  # $20 trillion for VEI 7
+            elif vei >= 6:
+                self.economic_impact = 5000   # $5 trillion for VEI 6
+            else:
+                self.economic_impact = vei * 500  # $500B per VEI level for smaller eruptions
+
+        elif self.event_type == 'climate_collapse':
+            temp_change = abs(self.simulation_data.get('temperature_change_c', 0))
+
+            # Estimate casualties based on temperature change severity
+            if temp_change >= 15:
+                self.estimated_casualties = int(world_population * 0.90)  # 90% population loss
+            elif temp_change >= 10:
+                self.estimated_casualties = int(world_population * 0.60)  # 60% population loss
+            elif temp_change >= 7:
+                self.estimated_casualties = int(world_population * 0.30)  # 30% population loss
+            elif temp_change >= 5:
+                self.estimated_casualties = int(world_population * 0.10)  # 10% population loss
+            elif temp_change >= 3:
+                self.estimated_casualties = int(world_population * 0.02)  # 2% population loss
+            else:
+                self.estimated_casualties = int(world_population * 0.005)  # 0.5% population loss
+              # Economic impact based on global economic disruption (more realistic)
+            if temp_change >= 15:
+                self.economic_impact = 100000  # $100 trillion for extreme scenarios
+            elif temp_change >= 10:
+                self.economic_impact = 50000   # $50 trillion
+            elif temp_change >= 7:
+                self.economic_impact = 20000   # $20 trillion
+            elif temp_change >= 5:
+                self.economic_impact = 10000   # $10 trillion
+            else:
+                self.economic_impact = temp_change * 1000  # $1 trillion per degree
+
+        elif self.event_type == 'gamma_ray_burst':
+            distance = self.simulation_data.get('distance_ly', 1000)
+
+            # Estimate casualties based on distance (closer = more dangerous)
+            if distance <= 500:
+                self.estimated_casualties = int(world_population * 0.95)  # 95% population loss
+            elif distance <= 1000:
+                self.estimated_casualties = int(world_population * 0.70)  # 70% population loss
+            elif distance <= 2000:
+                self.estimated_casualties = int(world_population * 0.40)  # 40% population loss
+            elif distance <= 3000:
+                self.estimated_casualties = int(world_population * 0.15)  # 15% population loss
+            elif distance <= 5000:
+                self.estimated_casualties = int(world_population * 0.05)  # 5% population loss
+            else:
+                self.estimated_casualties = int(world_population * 0.01)  # 1% population loss
+              # Economic impact based on radiation damage and recovery costs (more realistic)
+            if distance <= 500:
+                self.economic_impact = 80000  # $80 trillion for close bursts
+            elif distance <= 1000:
+                self.economic_impact = 40000  # $40 trillion
+            elif distance <= 2000:
+                self.economic_impact = 15000  # $15 trillion
+            elif distance <= 3000:
+                self.economic_impact = 5000   # $5 trillion
+            else:
+                self.economic_impact = max(100, 10000 / (distance / 1000))  # Scaling with distance
+
+        elif self.event_type == 'ai_extinction':
+            ai_level = self.simulation_data.get('ai_level', 5)
+
+            # Estimate casualties based on AI capability level
+            if ai_level >= 9:
+                self.estimated_casualties = int(world_population * 0.99)  # 99% population loss
+            elif ai_level >= 8:
+                self.estimated_casualties = int(world_population * 0.85)  # 85% population loss
+            elif ai_level >= 7:
+                self.estimated_casualties = int(world_population * 0.60)  # 60% population loss
+            elif ai_level >= 6:
+                self.estimated_casualties = int(world_population * 0.30)  # 30% population loss
+            elif ai_level >= 4:
+                self.estimated_casualties = int(world_population * 0.10)  # 10% population loss
+            else:
+                self.estimated_casualties = int(world_population * 0.01)  # 1% population loss
+              # Economic impact based on technological disruption (more realistic)
+            if ai_level >= 9:
+                self.economic_impact = 120000  # $120 trillion for extreme AI scenarios
+            elif ai_level >= 8:
+                self.economic_impact = 60000   # $60 trillion
+            elif ai_level >= 7:
+                self.economic_impact = 25000   # $25 trillion
+            elif ai_level >= 6:
+                self.economic_impact = 10000   # $10 trillion
+            else:
+                self.economic_impact = ai_level * 1000  # $1 trillion per AI level
 
         else:
+            # Default values for unknown event types
             self.estimated_casualties = 0
             self.economic_impact = 0.0
 

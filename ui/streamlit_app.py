@@ -319,6 +319,12 @@ def display_visualizations_tab(result, event_type):
         display_pandemic_visualizations(result)
     elif event_type == "supervolcano":
         display_supervolcano_visualizations(result)
+    elif event_type == "climate_collapse":
+        display_climate_collapse_visualizations(result)
+    elif event_type == "gamma_ray_burst":
+        display_gamma_ray_burst_visualizations(result)
+    elif event_type == "ai_extinction":
+        display_ai_extinction_visualizations(result)
     else:
         st.info("Visualizations not yet implemented for this event type.")
 
@@ -412,6 +418,142 @@ def display_supervolcano_visualizations(result):
     st.plotly_chart(fig, use_container_width=True)
 
 
+def display_climate_collapse_visualizations(result):
+    """Display climate collapse-specific visualizations."""
+    sim_data = result.simulation_data
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # Temperature change visualization
+        temp_change = sim_data.get('temperature_change_c', 0)
+
+        temp_data = {
+            'Scenario': ['Pre-Industrial', 'Current', 'This Event'],
+            'Temperature (°C)': [13.9, 15.1, 15.1 + temp_change],
+            'Color': ['blue', 'orange', 'red' if temp_change > 0 else 'purple']
+        }
+
+        fig = px.bar(
+            x=temp_data['Scenario'],
+            y=temp_data['Temperature (°C)'],
+            title="Global Temperature Change",
+            color=temp_data['Color']
+        )
+        fig.add_hline(y=13.9, line_dash="dash",
+                     annotation_text="Pre-Industrial Baseline")
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        # Impact severity visualization
+        severity_impacts = {
+            'Agriculture': max(0, min(100, abs(temp_change) * 15)),
+            'Sea Level': max(0, min(100, abs(temp_change) * 10)),
+            'Extreme Weather': max(0, min(100, abs(temp_change) * 12)),
+            'Ecosystem Collapse': max(0, min(100, abs(temp_change) * 8)),
+            'Human Habitability': max(0, min(100, abs(temp_change) * 5))
+        }
+
+        fig = px.bar(
+            x=list(severity_impacts.keys()),
+            y=list(severity_impacts.values()),
+            title="Impact Severity (%)"
+        )
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+
+
+def display_gamma_ray_burst_visualizations(result):
+    """Display gamma-ray burst-specific visualizations."""
+    sim_data = result.simulation_data
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # Distance comparison
+        distance = sim_data.get('distance_ly', 1000)
+
+        distance_data = {
+            'Proxima Centauri': 4.2,
+            'Nearby Stars': 100,
+            'Galactic Neighborhood': 1000,
+            f'This GRB': distance,
+            'Galactic Center': 26000
+        }
+
+        fig = px.bar(
+            x=list(distance_data.keys()),
+            y=list(distance_data.values()),
+            title="Distance Comparison (Light Years)",
+            log_y=True
+        )
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        # Radiation effects
+        ozone_depletion = max(0, min(100, (2000 - distance) / 20))
+        uv_increase = max(0, min(500, (2000 - distance) / 10))
+
+        effects_data = {
+            'Effect': ['Ozone Depletion (%)', 'UV Increase (%)', 'Cosmic Ray Flux (%)'],
+            'Magnitude': [ozone_depletion, uv_increase, max(0, (1500 - distance) / 15)]
+        }
+
+        fig = px.bar(
+            x=effects_data['Effect'],
+            y=effects_data['Magnitude'],
+            title="Radiation Effects"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+
+def display_ai_extinction_visualizations(result):
+    """Display AI extinction-specific visualizations."""
+    sim_data = result.simulation_data
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # AI capability progression
+        ai_level = sim_data.get('ai_level', 5)
+
+        capability_levels = {
+            'Current AI (2024)': 3,
+            'Human-level AGI': 5,
+            'Superintelligent AI': 7,
+            f'This Scenario (Level {ai_level})': ai_level,
+            'Theoretical Maximum': 10
+        }
+
+        fig = px.bar(
+            x=list(capability_levels.keys()),
+            y=list(capability_levels.values()),
+            title="AI Capability Levels"
+        )
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        # Risk factors by AI level
+        control_difficulty = min(100, ai_level * 12)
+        alignment_challenge = min(100, ai_level * 15)
+        speed_advantage = min(100, max(0, (ai_level - 4) * 20))
+
+        risk_data = {
+            'Risk Factor': ['Control Difficulty', 'Alignment Challenge', 'Speed Advantage', 'Economic Disruption'],
+            'Risk Level (%)': [control_difficulty, alignment_challenge, speed_advantage, min(100, ai_level * 10)]
+        }
+
+        fig = px.bar(
+            x=risk_data['Risk Factor'],
+            y=risk_data['Risk Level (%)'],
+            title="Risk Factors"
+        )
+        fig.update_layout(xaxis_tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+
+
 def display_risk_factors_tab(result):
     """Display risk factors."""
     risk_factors = result.get_risk_factors()
@@ -459,6 +601,24 @@ def display_event_info(event_type):
             "description": "Highly contagious and deadly pathogens can spread globally, potentially causing societal collapse through direct mortality and system breakdown.",
             "examples": ["Spanish Flu (1918)", "Black Death", "COVID-19"],
             "timeframe": "Spreads over months, effects last years"
+        },
+        "climate_collapse": {
+            "title": "🌡️ Climate Collapse",
+            "description": "Rapid and severe climate change can lead to ecosystem collapse, agricultural failure, and mass displacement. Both extreme warming and cooling scenarios pose existential threats.",
+            "examples": ["Snowball Earth", "Permian-Triassic Extinction", "Younger Dryas"],
+            "timeframe": "Develops over decades, effects last centuries to millennia"
+        },
+        "gamma_ray_burst": {
+            "title": "💫 Gamma-Ray Burst",
+            "description": "High-energy radiation from stellar explosions can strip away Earth's ozone layer, leading to increased UV radiation and mass extinction through ecosystem collapse.",
+            "examples": ["Ordovician-Silurian Extinction (theoretical)", "WR 104 (potential threat)"],
+            "timeframe": "Instantaneous burst, effects develop over months to years"
+        },
+        "ai_extinction": {
+            "title": "🤖 AI Extinction Risk",
+            "description": "Advanced artificial intelligence systems could pose existential risks through misalignment, rapid capability advancement, or loss of human control over critical systems.",
+            "examples": ["Hypothetical scenarios", "AI alignment research"],
+            "timeframe": "Could develop rapidly once threshold capabilities are reached"
         }
     }
 
